@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   # Admin namespace
-  namespace :admin do
+  namespace :admin, as: 'editor' do
     root 'root#index'
   end
 
