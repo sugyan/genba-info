@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use devise for authentication
 gem 'devise', '~> 3.4'
+gem 'devise-i18n', '~> 0.12'
 # Use Twitter Bootstrap
 gem 'twitter-bootstrap-rails', '~> 3.2'
 # Use React
