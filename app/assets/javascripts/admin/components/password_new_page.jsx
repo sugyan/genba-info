@@ -1,4 +1,4 @@
-class LoginPage extends React.Component {
+class PasswordNewPage extends React.Component {
     static get propTypes() {
         return {
             form: React.PropTypes.object.isRequired,
@@ -8,8 +8,8 @@ class LoginPage extends React.Component {
     render() {
         return (
             <div>
-              <h2>ログイン</h2>
-              <LoginForm {...this.props.form} />
+              <h2>パスワードを忘れた場合</h2>
+              <PasswordNewForm {...this.props.form} />
               <AuthSharedLinks links={this.props.links} />
             </div>
         );

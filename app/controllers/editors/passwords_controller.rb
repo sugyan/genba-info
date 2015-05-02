@@ -1,3 +1,4 @@
+# coding: utf-8
 class Editors::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   # def new
@@ -15,9 +16,14 @@ class Editors::PasswordsController < Devise::PasswordsController
   # end
 
   # PUT /resource/password
-  # def update
-  #   super
-  # end
+  def update
+    # super実行後にflashにerror messageを入れるのでは遅いようなのでここで入れる
+    super do |resource|
+      if not resource.errors.empty?
+        flash[:alert] = resource.errors.full_messages
+      end
+    end
+  end
 
   # protected
 

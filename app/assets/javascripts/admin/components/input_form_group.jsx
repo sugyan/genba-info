@@ -5,6 +5,7 @@ class InputFormGroup extends React.Component {
             type: React.PropTypes.string.isRequired,
             name: React.PropTypes.string.isRequired,
             label: React.PropTypes.string,
+            required: React.PropTypes.bool,
             autofocus: React.PropTypes.bool
         };
     }
@@ -12,7 +13,7 @@ class InputFormGroup extends React.Component {
         return (
             <div className="form-group">
               <label>{this.props.label}</label>
-              <input name={`${this.props.resource_name}[${this.props.name}]`} type={this.props.name} className="form-control" autoFocus={this.props.autofocus} />
+              <input name={`${this.props.resource_name}[${this.props.name}]`} type={this.props.type} className="form-control" required={this.props.required} autoFocus={this.props.autofocus} />
             </div>
         );
     }
