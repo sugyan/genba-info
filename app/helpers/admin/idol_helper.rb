@@ -1,0 +1,2 @@
+module Admin::IdolHelper
+end

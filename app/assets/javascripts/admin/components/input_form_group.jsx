@@ -9,6 +9,11 @@ class InputFormGroup extends React.Component {
             autofocus: React.PropTypes.bool
         };
     }
+    static get defaultProps() {
+        return {
+            type: "text"
+        };
+    }
     render() {
         return (
             <div className="form-group">

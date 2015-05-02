@@ -1,0 +1,9 @@
+<%= react_component "IdolNewPage", {
+  form: {
+    action: editor_idol_index_path,
+    method: :post,
+    token: form_authenticity_token,
+    resource_name: "idol",
+  },
+  back_link: editor_idol_index_path,
+} %>

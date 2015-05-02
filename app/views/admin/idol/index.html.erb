@@ -1,0 +1,9 @@
+<%= react_component 'IdolIndexPage', {
+  idols: @idols.map{ |idol|
+    idol.serializable_hash.merge(links: {
+      show: editor_idol_path(idol),
+      edit: edit_editor_idol_path(idol),
+    })
+  },
+  new_link: new_editor_idol_path,
+} %>
