@@ -13,6 +13,7 @@ class Admin::IdolController < AdminController
 
   # GET /admin/idol/new
   def new
+    @idol = Idol.new
   end
 
   # GET /admin/idol/1/edit

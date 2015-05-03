@@ -1,0 +1,6 @@
+ja:
+  activerecord:
+    attributes:
+      idol:
+        name: 名前
+        kana: ふりがな

@@ -1,4 +1,5 @@
 <%= react_component "IdolNewPage", {
+  idol: @idol,
   form: {
     action: editor_idol_index_path,
     method: :post,
@@ -11,4 +12,8 @@
       text: "一覧へ戻る",
     },
   ],
+  errors: {
+    keys: @idol.errors.keys,
+    messages: @idol.errors.full_messages,
+  },
 } %>

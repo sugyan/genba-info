@@ -3,14 +3,16 @@ class IdolEditPage extends React.Component {
         return {
             idol: React.PropTypes.object.isRequired,
             form: React.PropTypes.object.isRequired,
-            links: React.PropTypes.array.isRequired
+            links: React.PropTypes.array.isRequired,
+            errors: React.PropTypes.object.isRequired
         };
     }
     render() {
         return (
             <div>
               <h3>アイドル情報編集</h3>
-              <IdolForm {...this.props.form} idol={this.props.idol} submit="更新" />
+              {this.props.errors.messages.length > 0 && <AlertMessages messages={this.props.errors.messages} />}
+              <IdolForm {...this.props.form} idol={this.props.idol} errors={this.props.errors.keys} submit="更新" />
               <hr />
               {this.props.links.map((link, i) => <Link key={i} {...link} />)}
             </div>
