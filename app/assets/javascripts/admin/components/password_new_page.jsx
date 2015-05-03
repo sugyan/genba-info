@@ -10,7 +10,8 @@ class PasswordNewPage extends React.Component {
             <div>
               <h2>パスワードを忘れた場合</h2>
               <PasswordNewForm {...this.props.form} />
-              <AuthSharedLinks links={this.props.links} />
+              <hr />
+              {this.props.links.map((link, i) => <Link key={i} {...link} />)}
             </div>
         );
     }

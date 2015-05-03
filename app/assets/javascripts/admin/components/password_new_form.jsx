@@ -11,7 +11,11 @@ class PasswordNewForm extends React.Component {
         return (
             <form action={this.props.action} method={this.props.method}>
               {this.props.token && <input type="hidden" name="authenticity_token" value={this.props.token} />}
-              <InputFormGroup label="Email address" type="email" name="email" resource_name={this.props.resource_name} autofocus={true} required={true} />
+              <InputFormGroup name={`${this.props.resource_name}[email]`}
+                              type="email"
+                              label="Email address"
+                              required={true}
+                              autofocus={true} />
               <button type="submit" className="btn btn-default">パスワードリセットのメールを送信</button>
             </form>
         );

@@ -10,7 +10,8 @@ class PasswordEditPage extends React.Component {
             <div>
               <h2>パスワード変更</h2>
               <PasswordEditForm {...this.props.form} />
-              <AuthSharedLinks links={this.props.links} />
+              <hr />
+              {this.props.links.map((link, i) => <Link key={i} {...link} />)}
             </div>
         );
     }

@@ -1,0 +1,19 @@
+<%= react_component "IdolEditPage", {
+  idol: @idol,
+  form: {
+    action: editor_idol_path(@idol),
+    method: :patch,
+    token: form_authenticity_token,
+    resource_name: :idol,
+  },
+  links: [
+    {
+      href: editor_idol_path(@idol),
+      text: "詳細",
+    },
+    {
+      href: editor_idol_index_path,
+      text: "一覧へ戻る",
+    },
+  ],
+} %>

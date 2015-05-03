@@ -29,6 +29,15 @@ class Admin::IdolController < AdminController
     end
   end
 
+  # PATCH/PUT /admin/idol/1
+  def update
+    if @idol.update(idol_params)
+      redirect_to editor_idol_url(@idol), notice: "更新されました"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_idol

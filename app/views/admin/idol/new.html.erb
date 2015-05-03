@@ -3,7 +3,12 @@
     action: editor_idol_index_path,
     method: :post,
     token: form_authenticity_token,
-    resource_name: "idol",
+    resource_name: :idol,
   },
-  back_link: editor_idol_index_path,
+  links: [
+    {
+      href: editor_idol_index_path,
+      text: "一覧へ戻る",
+    },
+  ],
 } %>

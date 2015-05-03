@@ -1,0 +1,16 @@
+<%= react_component "IdolShowPage", {
+  idol: @idol.serializable_hash.merge(
+    created_at: @idol.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+    updated_at: @idol.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
+  ),
+  links: [
+    {
+      href: edit_editor_idol_path(@idol),
+      text: "編集",
+    },
+    {
+      href: editor_idol_index_path,
+      text: "一覧へ戻る",
+    },
+  ],
+} %>

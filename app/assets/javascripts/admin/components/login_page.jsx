@@ -10,7 +10,8 @@ class LoginPage extends React.Component {
             <div>
               <h2>ログイン</h2>
               <LoginForm {...this.props.form} />
-              <AuthSharedLinks links={this.props.links} />
+              <hr />
+              {this.props.links.map((link, i) => <Link key={i} {...link} />)}
             </div>
         );
     }
