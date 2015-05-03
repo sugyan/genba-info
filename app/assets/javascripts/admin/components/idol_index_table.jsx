@@ -34,7 +34,7 @@ class IdolIndexTableRow extends React.Component {
               <td>{this.props.name}</td>
               <td><Link href={this.props.links.show} text="詳細" classes={[]} /></td>
               <td><Link href={this.props.links.edit} text="編集" classes={[]} /></td>
-              <td><a href="">削除</a></td>
+              <td><Link href={this.props.links.delete} text="削除" classes={[]} method="delete" confirm="削除しますか？" /></td>
             </tr>
         );
     }

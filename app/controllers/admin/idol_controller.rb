@@ -38,6 +38,12 @@ class Admin::IdolController < AdminController
     end
   end
 
+  # DELETE /admin/idol/1
+  def destroy
+    @idol.destroy
+    redirect_to editor_idol_index_url, notice: "削除されました"
+  end
+
   private
 
   def set_idol
