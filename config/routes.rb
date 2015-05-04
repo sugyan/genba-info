@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'root#index'
+  get 'idols'     => 'root#idols'
+  get 'locations' => 'root#locations'
 
   # Admin namespace
   namespace :admin, as: 'editor' do
