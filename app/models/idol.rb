@@ -1,6 +1,7 @@
 # coding: utf-8
 class Idol < ActiveRecord::Base
-  obfuscate_id
+  extend ObfuscateId::ClassMethods
+  obfuscate_id spin: obfuscate_id_default_spin + ENV['OBFUSCATE_SPIN'].to_i
 
   validates :name, :kana, presence: true
   validates :name, uniqueness: true

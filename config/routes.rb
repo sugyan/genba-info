@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   # Admin namespace
   namespace :admin, as: 'editor' do
     root 'root#index'
-    resources :idol
+    resources :idols
+    resources :locations
   end
 
   # Example of regular route:

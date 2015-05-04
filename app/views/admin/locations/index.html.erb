@@ -1,0 +1,19 @@
+<h2>登録会場一覧</h2>
+<%= react_component "LocationIndex", {
+  locations: @locations.map{ |location|
+    location.serializable_hash.merge(links: {
+      show: editor_location_path(location),
+      edit: edit_editor_location_path(location),
+      delete: editor_location_path(location),
+    })
+  },
+} %>
+<hr>
+<%= react_component "Links", {
+  links: [
+    {
+      href: new_editor_location_path,
+      text: "新規登録",
+    },
+  ],
+} %>
