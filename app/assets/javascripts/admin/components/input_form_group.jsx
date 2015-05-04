@@ -13,7 +13,6 @@ class InputFormGroup extends React.Component {
             label: React.PropTypes.string,
             error: React.PropTypes.bool,
             required: React.PropTypes.bool,
-            autofocus: React.PropTypes.bool
         };
     }
     static get defaultProps() {
@@ -21,13 +20,11 @@ class InputFormGroup extends React.Component {
             type: "text"
         };
     }
+    focus() {
+        React.findDOMNode(this.refs["input"]).focus();
+    }
     handleChange(e) {
         this.setState({ value: e.target.value });
-    }
-    componentDidMount() {
-        if (this.props.error) {
-            React.findDOMNode(this.refs.input).focus();
-        }
     }
     render() {
         var classes = ["form-group"];
@@ -43,7 +40,6 @@ class InputFormGroup extends React.Component {
                      value={this.state.value}
                      className="form-control"
                      required={this.props.required}
-                     autoFocus={this.props.autofocus}
                      onChange={this.handleChange.bind(this)} />
             </div>
         );

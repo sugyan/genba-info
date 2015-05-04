@@ -1,19 +1,17 @@
-<%= react_component "IdolNewPage", {
+<h3>アイドル新規登録</h3>
+<%= react_component "IdolForm", {
   idol: @idol,
-  form: {
-    action: editor_idol_index_path,
-    method: :post,
-    token: form_authenticity_token,
-    resource_name: :idol,
-  },
+  action: editor_idol_index_path,
+  method: :post,
+  token: form_authenticity_token,
+  errors: @idol.errors.to_hash(true)
+} %>
+<hr>
+<%= react_component "Links", {
   links: [
     {
       href: editor_idol_index_path,
       text: "一覧へ戻る",
     },
   ],
-  errors: {
-    keys: @idol.errors.keys,
-    messages: @idol.errors.full_messages,
-  },
 } %>

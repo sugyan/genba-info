@@ -1,8 +1,10 @@
-<%= react_component "IdolShowPage", {
-  idol: @idol.serializable_hash.merge(
-    created_at: @idol.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-    updated_at: @idol.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
-  ),
+<h3>アイドル詳細</h3>
+<%= react_component "IdolDescription", @idol.serializable_hash.merge(
+  created_at: @idol.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+  updated_at: @idol.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
+) %>
+<hr>
+<%= react_component "Links", {
   links: [
     {
       href: edit_editor_idol_path(@idol),

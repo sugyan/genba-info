@@ -1,11 +1,14 @@
-<%= react_component "IdolEditPage", {
+<h3>アイドル情報編集</h3>
+<%= react_component "IdolForm", {
   idol: @idol,
-  form: {
-    action: editor_idol_path(@idol),
-    method: :patch,
-    token: form_authenticity_token,
-    resource_name: :idol,
-  },
+  action: editor_idol_path(@idol),
+  method: :patch,
+  token: form_authenticity_token,
+  errors: @idol.errors.to_hash(true),
+  submit: "更新",
+} %>
+<hr>
+<%= react_component "Links", {
   links: [
     {
       href: editor_idol_path(@idol),
@@ -16,8 +19,4 @@
       text: "一覧へ戻る",
     },
   ],
-  errors: {
-    keys: @idol.errors.keys,
-    messages: @idol.errors.full_messages,
-  },
 } %>

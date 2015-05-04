@@ -1,4 +1,5 @@
-<%= react_component "IdolIndexPage", {
+<h3>登録アイドル一覧</h3>
+<%= react_component "IdolIndex", {
   idols: @idols.map{ |idol|
     idol.serializable_hash.merge(links: {
       show: editor_idol_path(idol),
@@ -6,6 +7,9 @@
       delete: editor_idol_path(idol),
     })
   },
+} %>
+<hr>
+<%= react_component "Links", {
   links: [
     {
       href: new_editor_idol_path,
