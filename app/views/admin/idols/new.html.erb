@@ -1,7 +1,7 @@
 <h3>アイドル新規登録</h3>
 <%= react_component "IdolForm", {
   idol: @idol,
-  action: editor_idol_index_path,
+  action: editor_idols_path,
   method: :post,
   token: form_authenticity_token,
   errors: @idol.errors.to_hash(true)
@@ -10,7 +10,7 @@
 <%= react_component "Links", {
   links: [
     {
-      href: editor_idol_index_path,
+      href: editor_idols_path,
       text: "一覧へ戻る",
     },
   ],
