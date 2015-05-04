@@ -1,11 +1,13 @@
-<%= react_component "PasswordEditPage", {
-  form: {
-    action: password_path(resource_name),
-    method: :put,
-    token: form_authenticity_token,
-    resource_name: resource_name,
-    reset_password_token: params['reset_password_token'],
-  },
+<h2>パスワード変更</h2>
+<%= react_component "PasswordEditForm", {
+  action: password_path(resource_name),
+  method: :put,
+  token: form_authenticity_token,
+  reset_password_token: resource.reset_password_token,
+  errors: resource.errors.to_hash(true),
+} %>
+<hr>
+<%= react_component "Links", {
   links: [
     {
       href: new_session_path(resource_name),

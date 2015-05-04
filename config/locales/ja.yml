@@ -4,3 +4,6 @@ ja:
       idol:
         name: 名前
         kana: ふりがな
+      editor:
+        password: パスワード
+        password_confirmation: 確認再入力
