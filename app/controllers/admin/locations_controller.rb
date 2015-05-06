@@ -52,6 +52,6 @@ class Admin::LocationsController < AdminController
   end
 
   def location_params
-    params.require(:location).permit(:name, :address, :url)
+    params.require(:location).permit(:name, :address, :url, :lat, :lng)
   end
 end

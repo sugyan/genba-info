@@ -13,6 +13,7 @@ class InputFormGroup extends React.Component {
             label: React.PropTypes.string,
             error: React.PropTypes.bool,
             required: React.PropTypes.bool,
+            onChange: React.PropTypes.func
         };
     }
     static get defaultProps() {
@@ -25,6 +26,9 @@ class InputFormGroup extends React.Component {
     }
     handleChange(e) {
         this.setState({ value: e.target.value });
+        if (this.props.onChange) {
+            this.props.onChange(e.target.value);
+        }
     }
     render() {
         var classes = ["form-group"];
