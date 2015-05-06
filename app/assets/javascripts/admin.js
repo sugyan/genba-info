@@ -16,4 +16,6 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require typeahead.js.js
+//= require tagsinput
 //= require admin/index

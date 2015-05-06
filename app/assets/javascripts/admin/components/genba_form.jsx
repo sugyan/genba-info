@@ -43,6 +43,7 @@ class GenbaForm extends React.Component {
                               label="タイトル"
                               required={true}
                               error={!! this.props.errors["title"]}/>
+              <TagsInputFormGroup label="出演者" />
               <button type="submit" className="btn btn-default">{this.props.submit}</button>
             </form>
         );
