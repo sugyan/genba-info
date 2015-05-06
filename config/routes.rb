@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
   # Devise authentication
   devise_for :editors, path: 'admin',
-             path_names: {
-               sign_in: 'login',
-               sign_out: 'logout',
-               password: 'password',
-             },
              controllers: {
                sessions: 'editors/sessions',
                passwords: 'editors/passwords',
@@ -22,6 +17,7 @@ Rails.application.routes.draw do
   # Admin namespace
   namespace :admin, as: 'editor' do
     root 'root#index'
+    resources :genbas
     resources :idols
     resources :locations
   end

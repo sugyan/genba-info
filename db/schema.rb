@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504062855) do
+ActiveRecord::Schema.define(version: 20150506150800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20150504062855) do
 
   add_index "editors", ["email"], name: "index_editors_on_email", unique: true, using: :btree
   add_index "editors", ["reset_password_token"], name: "index_editors_on_reset_password_token", unique: true, using: :btree
+
+  create_table "genbas", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.text     "urls"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "idols", force: :cascade do |t|
     t.string   "name"
