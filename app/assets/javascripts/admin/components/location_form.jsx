@@ -24,7 +24,7 @@ class LocationForm extends React.Component {
     }
     updateLocation() {
         $.ajax({
-            url: "http://maps.googleapis.com/maps/api/geocode/json",
+            url: "https://maps.googleapis.com/maps/api/geocode/json",
             data: {
                 address: this.address,
                 language: "ja",
