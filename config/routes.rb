@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'root#index'
-  get 'idols'     => 'root#idols'
-  get 'locations' => 'root#locations'
+  get 'idol/list' => 'root#idol_list'
+  get 'idol/:id'  => 'root#idol_detail', as: 'idol_detail'
 
   # Admin namespace
   namespace :admin, as: 'editor' do

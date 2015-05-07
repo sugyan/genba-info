@@ -2,11 +2,11 @@ class RootController < ApplicationController
   def index
   end
 
-  def idols
+  def idol_list
     @idols = Idol.order(:kana)
   end
 
-  def locations
-    @locations = Location.order(:name)
+  def idol_detail
+    @idol = Idol.find(params[:id])
   end
 end

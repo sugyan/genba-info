@@ -1,0 +1,6 @@
+<h2><%= @idol.name %></h2>
+<%= react_component "IdolDetail", {
+  idol: @idol.serializable_hash
+}, {
+  prerender: true
+} %>
