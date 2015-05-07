@@ -1,6 +1,7 @@
 class TagsInputFormGroup extends React.Component {
     static get propTypes() {
         return {
+            prefetch_url: React.PropTypes.string.isRequired,
             label: React.PropTypes.string
         };
     }
@@ -8,42 +9,22 @@ class TagsInputFormGroup extends React.Component {
         console.log(e);
     }
     componentDidMount() {
-        var cities = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('text'),
+        var data = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('words'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
-            local: [ { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    },
-                     { "value": 2 , "text": "London"      , "continent": "Europe"    },
-                     { "value": 3 , "text": "Paris"       , "continent": "Europe"    },
-                     { "value": 4 , "text": "Washington"  , "continent": "America"   },
-                     { "value": 5 , "text": "Mexico City" , "continent": "America"   },
-                     { "value": 6 , "text": "Buenos Aires", "continent": "America"   },
-                     { "value": 7 , "text": "Sydney"      , "continent": "Australia" },
-                     { "value": 8 , "text": "Wellington"  , "continent": "Australia" },
-                     { "value": 9 , "text": "Canberra"    , "continent": "Australia" },
-                     { "value": 10, "text": "Beijing"     , "continent": "Asia"      },
-                     { "value": 11, "text": "New Delhi"   , "continent": "Asia"      },
-                     { "value": 12, "text": "Kathmandu"   , "continent": "Asia"      },
-                     { "value": 13, "text": "Cairo"       , "continent": "Africa"    },
-                     { "value": 14, "text": "Cape Town"   , "continent": "Africa"    },
-                     { "value": 15, "text": "Kinshasa"    , "continent": "Africa"    }
-            ]
-        });
-        cities.initialize();
-        var input = $(React.findDOMNode(this.refs["input"]));
-        input.tagsinput({
-            itemValue: 'value',
-            itemText: 'text',
-            typeaheadjs: {
-                name: 'cities',
-                displayKey: 'text',
-                source: cities.ttAdapter()
+            prefetch: {
+                url: this.props.prefetch_url
             }
         });
-        input.tagsinput('add', { "value": 1 , "text": "Amsterdam"   , "continent": "Europe"    });
-        input.tagsinput('add', { "value": 4 , "text": "Washington"  , "continent": "America"   });
-        input.tagsinput('add', { "value": 7 , "text": "Sydney"      , "continent": "Australia" });
-        input.tagsinput('add', { "value": 10, "text": "Beijing"     , "continent": "Asia"      });
-        input.tagsinput('add', { "value": 13, "text": "Cairo"       , "continent": "Africa"    });
+
+        var input = $(React.findDOMNode(this.refs["input"]));
+        input.tagsinput({
+            typeaheadjs: {
+                displayKey: "name",
+                valueKey: "name",
+                source: data.ttAdapter()
+            }
+        });
     }
     render() {
         return (
@@ -52,7 +33,7 @@ class TagsInputFormGroup extends React.Component {
               <div className="form-control-static" style={{padding: 0}}>
                 <input ref="input"
                        type="text"
-                       value="Amsterdam,Washington,Sydney,Beijing,Cairo"
+                       value=""
                        className="form-control"
                        onChange={this.handleChange.bind(this)} />
               </div>

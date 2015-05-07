@@ -37,13 +37,18 @@ class GenbaForm extends React.Component {
               {messages.length > 0 && <AlertMessages messages={messages} />}
               {this.props.token && <input type="hidden" name="authenticity_token" value={this.props.token} />}
               <input type="hidden" name="_method" value={this.props.method} />
-              <InputFormGroup ref="title"
-                              name={this.generateName("title")}
-                              value={this.props.genba.title}
-                              label="タイトル"
-                              required={true}
-                              error={!! this.props.errors["title"]}/>
-              <TagsInputFormGroup label="出演者" />
+              <InputFormGroup
+                ref="title"
+                name={this.generateName("title")}
+                value={this.props.genba.title}
+                label="タイトル"
+                required={true}
+                error={!! this.props.errors["title"]}
+              />
+              <TagsInputFormGroup
+                prefetch_url="/admin/idols.json"
+                label="出演者"
+              />
               <button type="submit" className="btn btn-default">{this.props.submit}</button>
             </form>
         );
