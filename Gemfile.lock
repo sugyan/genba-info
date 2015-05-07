@@ -90,6 +90,8 @@ GEM
       scatter_swap (~> 0.0.3)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    puma (2.11.2)
+      rack (>= 1.1, < 2.0)
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -120,6 +122,11 @@ GEM
     rails-i18n (4.0.4)
       i18n (~> 0.6)
       railties (~> 4.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.4)
+    rails_stdout_logging (0.0.3)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
@@ -189,10 +196,12 @@ DEPENDENCIES
   jquery-rails
   obfuscate_id (~> 0.2)
   pg
+  puma
   rails (= 4.2.1)
   rails-assets-tagsinput!
   rails-assets-typeahead.js!
   rails-i18n (~> 4.0)
+  rails_12factor
   react-rails (~> 1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
