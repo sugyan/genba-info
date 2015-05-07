@@ -46,8 +46,9 @@ class GenbaForm extends React.Component {
                 error={!! this.props.errors["title"]}
               />
               <TagsInputFormGroup
-                prefetch_url="/admin/idols.json"
+                name={this.generateName("idols")}
                 label="出演者"
+                prefetch_url="/admin/idols.json"
               />
               <button type="submit" className="btn btn-default">{this.props.submit}</button>
             </form>

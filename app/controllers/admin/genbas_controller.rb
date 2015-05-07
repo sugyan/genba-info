@@ -52,6 +52,6 @@ class Admin::GenbasController < AdminController
   end
 
   def genba_params
-    params.require(:genba).permit(:title)
+    params.require(:genba).permit(:title, :idols => [])
   end
 end
