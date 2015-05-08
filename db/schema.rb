@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507180249) do
+ActiveRecord::Schema.define(version: 20150508162351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,10 @@ ActiveRecord::Schema.define(version: 20150507180249) do
     t.text     "urls"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "location_id"
   end
+
+  add_index "genbas", ["location_id"], name: "index_genbas_on_location_id", using: :btree
 
   create_table "genbas_idols", id: false, force: :cascade do |t|
     t.integer "genba_id", null: false
@@ -76,4 +79,5 @@ ActiveRecord::Schema.define(version: 20150507180249) do
 
   add_index "locations", ["name"], name: "index_locations_on_name", unique: true, using: :btree
 
+  add_foreign_key "genbas", "locations"
 end

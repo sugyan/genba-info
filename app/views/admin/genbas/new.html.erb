@@ -1,6 +1,9 @@
 <h3>現場新規登録</h3>
 <%= react_component "GenbaForm", {
-  genba: @genba,
+  genba: @genba.serializable_hash.merge(
+    idols: @genba.idols,
+    location: @genba.location,
+  ),
   action: editor_genbas_path,
   method: :post,
   token: form_authenticity_token,

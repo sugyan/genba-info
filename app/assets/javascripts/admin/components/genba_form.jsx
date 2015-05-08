@@ -22,7 +22,7 @@ class GenbaForm extends React.Component {
         /* focus first input element */
         var target = "title";
         if (Object.keys(this.props.errors).length > 0) {
-            target = ["title"].filter((e) => !! this.props.errors[e])[0];
+            target = ["title", "idols"].filter((e) => !! this.props.errors[e])[0];
         }
         this.refs[target].focus && this.refs[target].focus();
     }
@@ -46,10 +46,17 @@ class GenbaForm extends React.Component {
                 error={!! this.props.errors["title"]}
               />
               <TagsInputFormGroup
+                ref="idols"
                 name={this.generateName("idols")}
                 values={this.props.genba.idols}
                 label="出演者"
                 prefetch_url="/admin/idols.json"
+              />
+              <SelectFormGroup
+                name={this.generateName("location_id")}
+                value={this.props.genba.location && this.props.genba.location.id}
+                label="会場"
+                prefetch_url="/admin/locations.json"
               />
               <button type="submit" className="btn btn-default">{this.props.submit}</button>
             </form>

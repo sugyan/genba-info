@@ -17,6 +17,8 @@ class GenbaDescription extends React.Component {
               <dd>{this.props.title}</dd>
               <dt>出演</dt>
               <dd>{this.props.idols.map((e) => e.name).join("、")}</dd>
+              <dt>会場</dt>
+              <dd>{this.props.location.name}</dd>
               <dt>作成日時</dt>
               <dd>{this.props.created_at}</dd>
               <dt>更新日時</dt>

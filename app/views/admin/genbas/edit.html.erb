@@ -2,6 +2,7 @@
 <%= react_component "GenbaForm", {
   genba: @genba.serializable_hash.merge(
     idols: @genba.idols,
+    location: @genba.location,
   ),
   action: editor_genba_path(@genba),
   method: :patch,

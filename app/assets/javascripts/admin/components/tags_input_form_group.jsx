@@ -8,9 +8,14 @@ class TagsInputFormGroup extends React.Component {
     static get propTypes() {
         return {
             name: React.PropTypes.string.isRequired,
-            values: React.PropTypes.array.isRequired,
+            values: React.PropTypes.array,
             prefetch_url: React.PropTypes.string.isRequired,
             label: React.PropTypes.string
+        };
+    }
+    static get defaultProps() {
+        return {
+            values: []
         };
     }
     componentDidMount() {
@@ -34,9 +39,6 @@ class TagsInputFormGroup extends React.Component {
         });
         this.props.values.forEach((e) => {
             input.tagsinput("add", e);
-        });
-        input.on("itemAdded itemRemoved", (e) => {
-            this.setState({ values: input.val() });
         });
     }
     render() {
