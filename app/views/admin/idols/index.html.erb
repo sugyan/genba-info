@@ -1,5 +1,6 @@
 <h3>登録アイドル一覧</h3>
-<%= react_component "IdolIndex", {
+<%= page_entries_info @idols %>
+<%= react_component "IdolIndexTable", {
   idols: @idols.map{ |idol|
     idol.serializable_hash.merge(links: {
       show: editor_idol_path(idol),
@@ -8,6 +9,9 @@
     })
   },
 } %>
+<nav class="text-center">
+  <%= paginate @idols %>
+</nav>
 <hr>
 <%= react_component "Links", {
   links: [
