@@ -4,6 +4,7 @@ class IdolDescription extends React.Component {
             id: React.PropTypes.number.isRequired,
             name: React.PropTypes.string.isRequired,
             kana: React.PropTypes.string.isRequired,
+            url: React.PropTypes.string.isRequired,
             created_at: React.PropTypes.string.isRequired,
             updated_at: React.PropTypes.string.isRequired
         };
@@ -17,6 +18,8 @@ class IdolDescription extends React.Component {
               <dd>{this.props.name}</dd>
               <dt>ふりがな</dt>
               <dd>{this.props.kana}</dd>
+              <dt>URL</dt>
+              <dd><a href={this.props.url} target="_blank">{this.props.url}</a></dd>
               <dt>作成日時</dt>
               <dd>{this.props.created_at}</dd>
               <dt>更新日時</dt>
