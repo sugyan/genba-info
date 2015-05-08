@@ -52,6 +52,8 @@ class Admin::GenbasController < AdminController
   end
 
   def genba_params
-    params.require(:genba).permit(:title, :idols => [])
+    p = params.require(:genba).permit(:title, :idols)
+    p[:idol_ids] = p.delete(:idols).split(/,/).map{ |id| Idol.find_by_id(id).to_param }
+    p
   end
 end

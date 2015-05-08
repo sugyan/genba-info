@@ -7,6 +7,8 @@ ja:
       editor:
         password: パスワード
         password_confirmation: 確認再入力
+      genba:
+        idols: 出演者
   views:
     pagination:
       first: 最初

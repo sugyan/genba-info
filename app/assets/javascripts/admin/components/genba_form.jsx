@@ -47,6 +47,7 @@ class GenbaForm extends React.Component {
               />
               <TagsInputFormGroup
                 name={this.generateName("idols")}
+                values={this.props.genba.idols}
                 label="出演者"
                 prefetch_url="/admin/idols.json"
               />
