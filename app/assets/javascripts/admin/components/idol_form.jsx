@@ -39,19 +39,19 @@ class IdolForm extends React.Component {
               <input type="hidden" name="_method" value={this.props.method} />
               <InputFormGroup ref="name"
                               name={this.generateName("name")}
-                              value={this.props.idol.name}
+                              value={this.props.idol.name || ""}
                               label="名前"
                               required={true}
                               error={!! this.props.errors["name"]} />
               <InputFormGroup ref="kana"
                               name={this.generateName("kana")}
-                              value={this.props.idol.kana}
+                              value={this.props.idol.kana || ""}
                               label="ふりがな"
                               required={true}
                               error={!! this.props.errors["kana"]}/>
               <InputFormGroup ref="url"
                               name={this.generateName("url")}
-                              value={this.props.idol.url}
+                              value={this.props.idol.url || ""}
                               label="公式URL"
                               error={!! this.props.errors["url"]}/>
               <button type="submit" className="btn btn-default">{this.props.submit}</button>

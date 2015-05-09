@@ -94,13 +94,13 @@ class LocationForm extends React.Component {
               <input type="hidden" name={this.generateName("lng")} value={this.state.lng} />
               <InputFormGroup ref="name"
                               name={this.generateName("name")}
-                              value={this.props.location.name}
+                              value={this.props.location.name || ""}
                               label="名前"
                               required={true}
                               error={!! this.props.errors["name"]} />
               <InputFormGroup ref="address"
                               name={this.generateName("address")}
-                              value={this.props.location.address}
+                              value={this.props.location.address || ""}
                               label="住所"
                               required={true}
                               error={!! this.props.errors["address"]}
@@ -109,7 +109,7 @@ class LocationForm extends React.Component {
               <GeocodingResult {...this.state} />
               <InputFormGroup ref="url"
                               name={this.generateName("url")}
-                              value={this.props.location.url}
+                              value={this.props.location.url || ""}
                               label="公式URL"
                               error={!! this.props.errors["url"]}/>
               <button type="submit" className="btn btn-default">{this.props.submit}</button>

@@ -1,4 +1,4 @@
-class DatetimePickerFormGroup extends React.Component {
+class DatetimeFormGroup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

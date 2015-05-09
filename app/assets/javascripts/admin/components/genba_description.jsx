@@ -6,6 +6,7 @@ class GenbaDescription extends React.Component {
             idols: React.PropTypes.array.isRequired,
             location: React.PropTypes.object.isRequired,
             start_at: React.PropTypes.string.isRequired,
+            description: React.PropTypes.string,
             created_at: React.PropTypes.string.isRequired,
             updated_at: React.PropTypes.string.isRequired,
         };
@@ -23,6 +24,8 @@ class GenbaDescription extends React.Component {
               <dd>{this.props.location.name}</dd>
               <dt>日時</dt>
               <dd>{this.props.start_at} 〜 </dd>
+              <dt>詳細</dt>
+              <dd><pre>{this.props.description}</pre></dd>
               <dt>作成日時</dt>
               <dd>{this.props.created_at}</dd>
               <dt>更新日時</dt>

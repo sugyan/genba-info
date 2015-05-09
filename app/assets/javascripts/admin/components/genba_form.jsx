@@ -40,7 +40,7 @@ class GenbaForm extends React.Component {
               <InputFormGroup
                 ref="title"
                 name={this.generateName("title")}
-                value={this.props.genba.title}
+                value={this.props.genba.title || ""}
                 label="タイトル"
                 required={true}
                 error={!! this.props.errors["title"]}
@@ -58,10 +58,15 @@ class GenbaForm extends React.Component {
                 label="会場"
                 prefetch_url="/admin/locations.json"
               />
-              <DatetimePickerFormGroup
+              <DatetimeFormGroup
                 name={this.generateName("start_at")}
                 value={this.props.genba.start_at || ""}
                 label="日時"
+              />
+              <TextareaFormGroup
+                name={this.generateName("description")}
+                label="詳細"
+                value={this.props.genba.description || ""}
               />
               <button type="submit" className="btn btn-default">{this.props.submit}</button>
             </form>
