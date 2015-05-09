@@ -4,10 +4,9 @@ class Admin::IdolsController < AdminController
 
   # GET /admin/idols
   def index
-    @idols = Idol.order(id: :desc)
     respond_to do |format|
-      format.html { @idols = @idols.page(params[:page]).per(25) }
-      format.json
+      format.html { @idols = Idol.order(:kana).page(params[:page]).per(25) }
+      format.json { @idols = Idol.order(id: :desc) }
     end
   end
 
