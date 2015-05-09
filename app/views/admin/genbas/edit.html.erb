@@ -1,7 +1,7 @@
 <h3>現場情報編集</h3>
 <%= react_component "GenbaForm", {
   genba: @genba.serializable_hash.merge(
-    start_at: @genba.start_at.strftime('%Y-%m-%d %H:%M'),
+    start_at: @genba.start_at.strftime('%Y-%m-%dT%H:%M'),
     idols: @genba.idols,
     location: @genba.location,
   ),

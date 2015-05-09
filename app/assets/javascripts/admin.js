@@ -18,7 +18,4 @@
 //= require react_ujs
 //= require typeahead.js.js
 //= require tagsinput
-//= require moment
-//= require moment/locale/ja
-//= require bootstrap3-datetimepicker
 //= require admin/index
