@@ -4,6 +4,8 @@ class GenbaDescription extends React.Component {
             id: React.PropTypes.number.isRequired,
             title: React.PropTypes.string.isRequired,
             idols: React.PropTypes.array.isRequired,
+            location: React.PropTypes.object.isRequired,
+            start_at: React.PropTypes.string.isRequired,
             created_at: React.PropTypes.string.isRequired,
             updated_at: React.PropTypes.string.isRequired,
         };
@@ -19,6 +21,8 @@ class GenbaDescription extends React.Component {
               <dd>{this.props.idols.map((e) => e.name).join("、")}</dd>
               <dt>会場</dt>
               <dd>{this.props.location.name}</dd>
+              <dt>日時</dt>
+              <dd>{this.props.start_at} 〜 </dd>
               <dt>作成日時</dt>
               <dd>{this.props.created_at}</dd>
               <dt>更新日時</dt>

@@ -58,6 +58,11 @@ class GenbaForm extends React.Component {
                 label="会場"
                 prefetch_url="/admin/locations.json"
               />
+              <DatetimePickerFormGroup
+                name={this.generateName("start_at")}
+                value={this.props.genba.start_at || ""}
+                label="日時"
+              />
               <button type="submit" className="btn btn-default">{this.props.submit}</button>
             </form>
         );

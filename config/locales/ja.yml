@@ -9,6 +9,7 @@ ja:
         password_confirmation: 確認再入力
       genba:
         idols: 出演者
+        start_at: 開始日時
   views:
     pagination:
       first: 最初

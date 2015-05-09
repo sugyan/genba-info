@@ -67,4 +67,6 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-typeahead.js'
   gem 'rails-assets-tagsinput'
+  gem 'rails-assets-moment'
+  gem 'rails-assets-bootstrap3-datetimepicker'
 end

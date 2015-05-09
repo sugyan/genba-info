@@ -1,11 +1,14 @@
 <h3>現場一覧</h3>
 <%= react_component "GenbaIndex", {
   genbas: @genbas.map{ |genba|
-    genba.serializable_hash.merge(links: {
-      show: editor_genba_path(genba),
-      edit: edit_editor_genba_path(genba),
-      delete: editor_genba_path(genba),
-    })
+    genba.serializable_hash.merge(
+      start_at: genba.start_at.strftime('%Y-%m-%d %H:%M'),
+      links: {
+        show: editor_genba_path(genba),
+        edit: edit_editor_genba_path(genba),
+        delete: editor_genba_path(genba),
+      },
+    )
   },
 } %>
 <hr>
