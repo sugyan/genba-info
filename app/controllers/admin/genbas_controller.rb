@@ -4,7 +4,8 @@ class Admin::GenbasController < AdminController
 
   # GET /admin/genbas
   def index
-    @genbas = Genba.order(id: :desc)
+    @genbas = Genba.includes(:idols).order(id: :desc)
+              .page(params[:page]).per(25)
   end
 
   # GET /admin/genbas/1

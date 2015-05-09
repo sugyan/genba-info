@@ -1,5 +1,6 @@
 <h3>現場一覧</h3>
-<%= react_component "GenbaIndex", {
+<%= page_entries_info @genbas %>
+<%= react_component "GenbaIndexTable", {
   genbas: @genbas.map{ |genba|
     genba.serializable_hash.merge(
       start_at: genba.start_at.strftime('%Y-%m-%d %H:%M'),
@@ -8,9 +9,13 @@
         edit: edit_editor_genba_path(genba),
         delete: editor_genba_path(genba),
       },
+      idols: genba.idols[0..1],
     )
   },
 } %>
+<nav class="text-center">
+  <%= paginate @genbas %>
+</nav>
 <hr>
 <%= react_component "Links", {
   links: [
