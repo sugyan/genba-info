@@ -18,14 +18,6 @@ class GenbaForm extends React.Component {
         var resource_name = "genba";
         return `${resource_name}[${param}]`;
     }
-    componentDidMount() {
-        /* focus first input element */
-        var target = "title";
-        if (Object.keys(this.props.errors).length > 0) {
-            target = ["title", "idols"].filter((e) => !! this.props.errors[e])[0];
-        }
-        this.refs[target].focus && this.refs[target].focus();
-    }
     render() {
         var messages = Object.keys(this.props.errors).map((key) => {
             return this.props.errors[key];
@@ -76,7 +68,14 @@ class GenbaForm extends React.Component {
                 label="詳細"
                 value={this.props.genba.description || ""}
               />
-              <button type="submit" className="btn btn-default">{this.props.submit}</button>
+              <MultiInputsFormGroup
+                name={this.generateName("urls")}
+                type="url"
+                values={this.props.genba.urls}
+                label="参照URL"
+                error={!! this.props.errors["urls"]}
+              />
+              <button type="submit" className="btn btn-primary">{this.props.submit}</button>
             </form>
         );
     }

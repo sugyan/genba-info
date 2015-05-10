@@ -10,6 +10,7 @@ ja:
       genba:
         idols: 出演者
         start_at: 開始日時
+        urls: 参照URL
   views:
     pagination:
       first: 最初

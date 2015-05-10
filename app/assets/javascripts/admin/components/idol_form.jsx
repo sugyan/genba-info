@@ -54,7 +54,7 @@ class IdolForm extends React.Component {
                               value={this.props.idol.url || ""}
                               label="公式URL"
                               error={!! this.props.errors["url"]}/>
-              <button type="submit" className="btn btn-default">{this.props.submit}</button>
+              <button type="submit" className="btn btn-primary">{this.props.submit}</button>
             </form>
         );
     }
