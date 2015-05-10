@@ -10,7 +10,8 @@ class TagsInputFormGroup extends React.Component {
             name: React.PropTypes.string.isRequired,
             values: React.PropTypes.array,
             prefetch_url: React.PropTypes.string.isRequired,
-            label: React.PropTypes.string
+            label: React.PropTypes.string,
+            optional: React.PropTypes.element
         };
     }
     static get defaultProps() {
@@ -53,6 +54,7 @@ class TagsInputFormGroup extends React.Component {
                   readOnly={true}
                 />
               </div>
+              {this.props.optional}
             </div>
         );
     }

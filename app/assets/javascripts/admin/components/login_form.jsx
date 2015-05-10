@@ -17,15 +17,23 @@ class LoginForm extends React.Component {
         return (
             <form action={this.props.action} method={this.props.method}>
               {this.props.token && <input type="hidden" name="authenticity_token" value={this.props.token} />}
-              <InputFormGroup ref="email"
-                              name={this.generateName("email")}
-                              type="email"
-                              label="Email address" />
-              <InputFormGroup name={this.generateName("password")}
-                              type="password"
-                              label="Password" />
-              <InputCheckbox name={this.generateName("remember_me")}
-                             label="Remember me" />
+              <InputFormGroup
+                ref="email"
+                value=""
+                name={this.generateName("email")}
+                type="email"
+                label="Email address"
+              />
+              <InputFormGroup
+                name={this.generateName("password")}
+                value=""
+                type="password"
+                label="Password"
+              />
+              <InputCheckbox
+                name={this.generateName("remember_me")}
+                label="Remember me"
+              />
               <button type="submit" className="btn btn-default">ログイン</button>
             </form>
         );

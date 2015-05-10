@@ -32,6 +32,13 @@ class GenbaForm extends React.Component {
         }).reduce((prev, curr) => {
             return prev.concat(curr);
         }, []);
+        var more_idols = (
+            <InputCheckbox
+              name={this.generateName("more_idols")}
+              value={this.props.genba.more_idols}
+              label="その他"
+            />
+        );
         return (
             <form action={this.props.action} method="POST">
               {messages.length > 0 && <AlertMessages messages={messages} />}
@@ -51,6 +58,7 @@ class GenbaForm extends React.Component {
                 values={this.props.genba.idols}
                 label="出演者"
                 prefetch_url="/admin/idols.json"
+                optional={more_idols}
               />
               <SelectFormGroup
                 name={this.generateName("location_id")}

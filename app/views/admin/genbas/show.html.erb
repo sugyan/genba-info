@@ -3,7 +3,11 @@
   created_at: @genba.created_at.strftime('%Y-%m-%d %H:%M:%S'),
   updated_at: @genba.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
   start_at: @genba.start_at.strftime('%Y-%m-%d %H:%M'),
-  idols: @genba.idols,
+  idols: @genba.idols.map{ |idol|
+    idol.serializable_hash.merge(
+      link: editor_idol_path(idol),
+    )
+  },
   location: @genba.location,
 ) %>
 <hr>
