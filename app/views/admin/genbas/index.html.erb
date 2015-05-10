@@ -4,12 +4,9 @@
   genbas: @genbas.map{ |genba|
     genba.serializable_hash.merge(
       start_at: genba.start_at.strftime('%Y-%m-%d %H:%M'),
-      links: {
-        show: editor_genba_path(genba),
-        edit: edit_editor_genba_path(genba),
-        delete: editor_genba_path(genba),
-      },
+      link: editor_genba_path(genba),
       idols: genba.idols[0..1],
+      location: genba.location,
     )
   },
 } %>

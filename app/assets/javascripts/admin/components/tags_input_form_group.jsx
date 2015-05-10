@@ -46,7 +46,7 @@ class TagsInputFormGroup extends React.Component {
         return (
             <div className="form-group">
               <label className="control-label">{this.props.label}</label>
-              <div className="form-control-static" style={{padding: 0}}>
+              <div className="form-control-static" style={{ padding: 0 }}>
                 <input
                   name={this.props.name}
                   ref="input"

@@ -7,7 +7,7 @@ class Links extends React.Component {
     render() {
         return (
             <div>
-              {this.props.links.map((link, i) => <Link key={i} {...link} />)}
+              {this.props.links.map((link, i) => <Link key={i} style={{ margin: "0 5px" }} {...link} />)}
             </div>
         );
     }

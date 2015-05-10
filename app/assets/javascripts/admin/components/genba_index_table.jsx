@@ -12,8 +12,8 @@ class GenbaIndexTable extends React.Component {
                 <th>ID</th>
                 <th>タイトル</th>
                 <th>日時</th>
+                <th>会場</th>
                 <th>出演</th>
-                <th colSpan="3"></th>
               </thead>
               {rows}
             </table>
@@ -28,7 +28,8 @@ class GenbaIndexTableRow extends React.Component {
             title: React.PropTypes.string.isRequired,
             start_at: React.PropTypes.string.isRequired,
             idols: React.PropTypes.array.isRequired,
-            links: React.PropTypes.object.isRequired
+            location: React.PropTypes.object.isRequired,
+            link: React.PropTypes.string.isRequired
         };
     }
     render() {
@@ -39,12 +40,10 @@ class GenbaIndexTableRow extends React.Component {
         return (
             <tr>
               <td>{this.props.id}</td>
-              <td>{this.props.title}</td>
+              <td><a href={this.props.link}>{this.props.title}</a></td>
               <td>{this.props.start_at}</td>
+              <td>{this.props.location.name}</td>
               <td>{idol}</td>
-              <td><Link href={this.props.links.show} text="詳細" classes={[]} /></td>
-              <td><Link href={this.props.links.edit} text="編集" classes={[]} /></td>
-              <td><Link href={this.props.links.delete} text="削除" classes={[]} method="delete" confirm="削除しますか？" /></td>
             </tr>
         );
     }

@@ -14,12 +14,20 @@
 <%= react_component "Links", {
   links: [
     {
-      href: edit_editor_genba_path(@genba),
-      text: "編集",
-    },
-    {
       href: editor_genbas_path,
       text: "一覧へ戻る",
     },
+    {
+      href: edit_editor_genba_path(@genba),
+      text: "編集",
+      classes: ["btn", "btn-info"],
+    },
+    {
+      href: editor_genba_path(@genba),
+      text: "削除",
+      method: "delete",
+      confirm: "削除しますか？",
+      classes: ["btn", "btn-danger"],
+     },
   ],
 } %>
