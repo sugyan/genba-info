@@ -94,6 +94,7 @@ GEM
       scatter_swap (~> 0.0.3)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    pr_geohash (1.0.0)
     puma (2.11.2)
       rack (>= 1.1, < 2.0)
     rack (1.6.1)
@@ -205,6 +206,7 @@ DEPENDENCIES
   kaminari (~> 0.16)
   obfuscate_id (~> 0.2)
   pg
+  pr_geohash (~> 1.0)
   puma
   rails (= 4.2.1)
   rails-assets-tagsinput!
