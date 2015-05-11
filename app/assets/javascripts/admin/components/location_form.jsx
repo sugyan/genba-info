@@ -92,26 +92,32 @@ class LocationForm extends React.Component {
               <input type="hidden" name="_method" value={this.props.method} />
               <input type="hidden" name={this.generateName("lat")} value={this.state.lat} />
               <input type="hidden" name={this.generateName("lng")} value={this.state.lng} />
-              <InputFormGroup ref="name"
-                              name={this.generateName("name")}
-                              value={this.props.location.name || ""}
-                              label="名前"
-                              required={true}
-                              error={!! this.props.errors["name"]} />
-              <InputFormGroup ref="address"
-                              name={this.generateName("address")}
-                              value={this.props.location.address || ""}
-                              label="住所"
-                              required={true}
-                              error={!! this.props.errors["address"]}
-                              onChange={this.onAddressChanged.bind(this)} />
+              <InputText
+                ref="name"
+                name={this.generateName("name")}
+                value={this.props.location.name || ""}
+                label="名前"
+                required={true}
+                error={!! this.props.errors["name"]}
+              />
+              <InputText
+                ref="address"
+                name={this.generateName("address")}
+                value={this.props.location.address || ""}
+                label="住所"
+                required={true}
+                error={!! this.props.errors["address"]}
+                onChange={this.onAddressChanged.bind(this)}
+              />
               <div ref="map" style={{ width: "100%", height: "250" }}></div>
               <GeocodingResult {...this.state} />
-              <InputFormGroup ref="url"
-                              name={this.generateName("url")}
-                              value={this.props.location.url || ""}
-                              label="公式URL"
-                              error={!! this.props.errors["url"]}/>
+              <InputText
+                ref="url"
+                name={this.generateName("url")}
+                value={this.props.location.url || ""}
+                label="公式URL"
+                error={!! this.props.errors["url"]}
+              />
               <button type="submit" className="btn btn-primary">{this.props.submit}</button>
             </form>
         );

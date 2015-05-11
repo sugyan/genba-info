@@ -1,4 +1,4 @@
-class InputFormGroup extends React.Component {
+class InputText extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

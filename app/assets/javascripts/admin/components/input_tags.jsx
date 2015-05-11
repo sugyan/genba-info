@@ -1,4 +1,4 @@
-class TagsInputFormGroup extends React.Component {
+class InputTags extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

@@ -1,4 +1,4 @@
-class MultiInputsFormGroup extends React.Component {
+class InputMultiple extends React.Component {
     constructor(props) {
         super(props);
         var values = this.props.values;

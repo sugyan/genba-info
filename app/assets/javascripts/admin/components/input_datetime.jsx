@@ -1,4 +1,4 @@
-class DatetimeFormGroup extends React.Component {
+class InputDatetime extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

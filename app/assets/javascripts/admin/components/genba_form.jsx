@@ -36,7 +36,7 @@ class GenbaForm extends React.Component {
               {messages.length > 0 && <AlertMessages messages={messages} />}
               {this.props.token && <input type="hidden" name="authenticity_token" value={this.props.token} />}
               <input type="hidden" name="_method" value={this.props.method} />
-              <InputFormGroup
+              <InputText
                 ref="title"
                 name={this.generateName("title")}
                 value={this.props.genba.title || ""}
@@ -44,7 +44,7 @@ class GenbaForm extends React.Component {
                 required={true}
                 error={!! this.props.errors["title"]}
               />
-              <TagsInputFormGroup
+              <InputTags
                 ref="idols"
                 name={this.generateName("idols")}
                 values={this.props.genba.idols}
@@ -52,28 +52,37 @@ class GenbaForm extends React.Component {
                 prefetch_url="/admin/idols.json"
                 optional={more_idols}
               />
-              <SelectFormGroup
+              <InputSelect
                 name={this.generateName("location_id")}
                 value={this.props.genba.location && this.props.genba.location.id}
                 label="会場"
                 prefetch_url="/admin/locations.json"
               />
-              <DatetimeFormGroup
+              <InputDatetime
                 name={this.generateName("start_at")}
                 value={this.props.genba.start_at || ""}
                 label="日時"
               />
-              <TextareaFormGroup
+              <InputTextarea
                 name={this.generateName("description")}
                 label="詳細"
                 value={this.props.genba.description || ""}
               />
-              <MultiInputsFormGroup
+              <InputMultiple
                 name={this.generateName("urls")}
                 type="url"
                 values={this.props.genba.urls}
                 label="参照URL"
                 error={!! this.props.errors["urls"]}
+              />
+              <InputInlineRadio
+                name={this.generateName("status")}
+                label="公開ステータス"
+                values={[
+                  { label: "下書き", value: "false" },
+                  { label: "公開",   value: "true"  },
+                ]}
+                value={this.props.genba.status ? "true" : "false"}
               />
               <button type="submit" className="btn btn-primary">{this.props.submit}</button>
             </form>

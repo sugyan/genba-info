@@ -27,16 +27,20 @@ class PasswordEditForm extends React.Component {
               {this.props.token && <input type="hidden" name="authenticity_token" value={this.props.token} />}
               {this.props.reset_password_token && <input type="hidden" name={this.generateName("reset_password_token")} value={this.props.reset_password_token} />}
               <input type="hidden" name="_method" value={this.props.method} />
-              <InputFormGroup ref="password"
-                              name={this.generateName("password")}
-                              type="password"
-                              label="新規パスワード"
-                              required={true}
-                              autofocus={true} />
-              <InputFormGroup name={this.generateName("password_confirmation")}
-                              type="password"
-                              label="確認"
-                              required={true} />
+              <InputText
+                ref="password"
+                name={this.generateName("password")}
+                type="password"
+                label="新規パスワード"
+                required={true}
+                autofocus={true}
+              />
+              <InputText
+                name={this.generateName("password_confirmation")}
+                type="password"
+                label="確認"
+                required={true}
+              />
               <button type="submit" className="btn btn-default">変更する</button>
             </form>
         );

@@ -1,4 +1,4 @@
-class TextareaFormGroup extends React.Component {
+class InputTextarea extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

@@ -1,4 +1,4 @@
-class SelectFormGroup extends React.Component {
+class InputSelect extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

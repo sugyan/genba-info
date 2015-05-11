@@ -17,14 +17,14 @@ class LoginForm extends React.Component {
         return (
             <form action={this.props.action} method={this.props.method}>
               {this.props.token && <input type="hidden" name="authenticity_token" value={this.props.token} />}
-              <InputFormGroup
+              <InputText
                 ref="email"
                 value=""
                 name={this.generateName("email")}
                 type="email"
                 label="Email address"
               />
-              <InputFormGroup
+              <InputText
                 name={this.generateName("password")}
                 value=""
                 type="password"

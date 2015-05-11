@@ -9,8 +9,9 @@ class GenbaDescription extends React.Component {
             start_at: React.PropTypes.string.isRequired,
             description: React.PropTypes.string.isRequired,
             urls: React.PropTypes.array.isRequired,
+            status: React.PropTypes.bool.isRequired,
             created_at: React.PropTypes.string.isRequired,
-            updated_at: React.PropTypes.string.isRequired,
+            updated_at: React.PropTypes.string.isRequired
         };
     }
     render() {
@@ -41,6 +42,8 @@ class GenbaDescription extends React.Component {
               <dd><pre>{this.props.description}</pre></dd>
               <dt>参照URL</dt>
               <dd><ul>{this.props.urls.map((e, i) => <li key={i}><a href={e}>{e}</a></li>)}</ul></dd>
+              <dt>状態</dt>
+              <dd>{this.props.status ? "公開" : "下書き"}</dd>
               <dt>作成日時</dt>
               <dd>{this.props.created_at}</dd>
               <dt>更新日時</dt>
