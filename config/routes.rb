@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   namespace :admin, as: 'editor' do
     root 'root#index'
     resources :sources, only: [:index, :show, :update]
-    get 'sources/:id/genba' => 'sources#genba', as: 'genba'
+    get 'sources/:id/genba' => 'sources#genba', as: 'new_genba'
     resources :genbas
     resources :idols
     resources :locations
