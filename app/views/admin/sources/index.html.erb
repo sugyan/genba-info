@@ -1,0 +1,13 @@
+<h3>現場情報</h3>
+<%= page_entries_info @sources %>
+<%= react_component "SourceIndexTable", {
+  sources: @sources.map{ |source|
+    source.serializable_hash.merge(
+      start_at: source.start_at.strftime('%Y-%m-%d %H:%M'),
+      link: editor_source_path(source),
+    )
+  },
+} %>
+<nav class="text-center">
+  <%= paginate @sources %>
+</nav>

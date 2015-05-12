@@ -15,6 +15,7 @@ class Admin::GenbasController < AdminController
   # GET /admin/genbas/new
   def new
     @genba = Genba.new
+    @genba.start_at = Date.today
   end
 
   # GET /admin/genbas/1/edit

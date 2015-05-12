@@ -4,11 +4,20 @@
   updated_at: @source.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
   start_at: @source.start_at.strftime('%Y-%m-%d %H:%M'),
 ) %>
+<%= react_component "Links", {
+  links: [
+    {
+      href: editor_genba_path(@source),
+      text: "この情報を元に現場を登録する",
+      classes: ["btn", "btn-primary"],
+    },
+  ],
+} %>
 <hr>
 <%= react_component "Links", {
   links: [
     {
-      href: editor_root_path,
+      href: editor_sources_path,
       text: "一覧へ戻る",
     },
   ],
