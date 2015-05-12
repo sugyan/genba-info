@@ -9,7 +9,6 @@ class GenbaIndexTable extends React.Component {
         return (
             <table className="table table-hover">
               <thead>
-                <th>ID</th>
                 <th>タイトル</th>
                 <th>日時</th>
                 <th>会場</th>
@@ -24,7 +23,6 @@ class GenbaIndexTable extends React.Component {
 class GenbaIndexTableRow extends React.Component {
     static get propTypes() {
         return {
-            id: React.PropTypes.number.isRequired,
             title: React.PropTypes.string.isRequired,
             start_at: React.PropTypes.string.isRequired,
             location: React.PropTypes.object.isRequired,
@@ -35,9 +33,8 @@ class GenbaIndexTableRow extends React.Component {
     render() {
         return (
             <tr className={this.props.status || "warning"}>
-              <td>{this.props.id}</td>
               <td><a href={this.props.link}>{this.props.title}</a></td>
-              <td>{this.props.start_at}</td>
+              <td className="text-nowrap">{this.props.start_at}</td>
               <td>{this.props.location.name}</td>
               <td>{this.props.status ? "公開" : "下書き"}</td>
             </tr>

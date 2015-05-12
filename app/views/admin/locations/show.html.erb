@@ -7,12 +7,20 @@
 <%= react_component "Links", {
   links: [
     {
-      href: edit_editor_location_path(@location),
-      text: "編集",
-    },
-    {
       href: editor_locations_path,
       text: "一覧へ戻る",
+    },
+    {
+      href: edit_editor_location_path(@location),
+      text: "編集",
+      classes: ["btn", "btn-info"],
+    },
+    {
+      href: editor_location_path(@location),
+      text: "削除",
+      method: "delete",
+      confirm: "削除しますか？",
+      classes: ["btn", "btn-danger"],
     },
   ],
 } %>

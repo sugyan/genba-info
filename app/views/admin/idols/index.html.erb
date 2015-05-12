@@ -2,11 +2,9 @@
 <%= page_entries_info @idols %>
 <%= react_component "IdolIndexTable", {
   idols: @idols.map{ |idol|
-    idol.serializable_hash.merge(links: {
-      show: editor_idol_path(idol),
-      edit: edit_editor_idol_path(idol),
-      delete: editor_idol_path(idol),
-    })
+    idol.serializable_hash.merge(
+      link: editor_idol_path(idol),
+    )
   },
 } %>
 <nav class="text-center">

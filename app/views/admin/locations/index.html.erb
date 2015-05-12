@@ -1,13 +1,15 @@
 <h3>会場一覧</h3>
+<%= page_entries_info @locations %>
 <%= react_component "LocationIndex", {
   locations: @locations.map{ |location|
-    location.serializable_hash.merge(links: {
-      show: editor_location_path(location),
-      edit: edit_editor_location_path(location),
-      delete: editor_location_path(location),
-    })
+    location.serializable_hash.merge(
+      link: editor_location_path(location),
+    )
   },
 } %>
+<nav class="text-center">
+  <%= paginate @locations %>
+</nav>
 <hr>
 <%= react_component "Links", {
   links: [

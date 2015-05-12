@@ -4,7 +4,8 @@ class Admin::LocationsController < AdminController
 
   # GET /admin/locations
   def index
-    @locations = Location.order(id: :desc)
+    @locations = Location.order(geohash: :desc)
+                 .page(params[:page]).per(25)
   end
 
   # GET /admin/locations/1
