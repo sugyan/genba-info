@@ -1,0 +1,15 @@
+<h3>情報詳細</h3>
+<%= react_component "SourceDescription", @source.serializable_hash.merge(
+  created_at: @source.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+  updated_at: @source.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
+  start_at: @source.start_at.strftime('%Y-%m-%d %H:%M'),
+) %>
+<hr>
+<%= react_component "Links", {
+  links: [
+    {
+      href: editor_root_path,
+      text: "一覧へ戻る",
+    },
+  ],
+} %>

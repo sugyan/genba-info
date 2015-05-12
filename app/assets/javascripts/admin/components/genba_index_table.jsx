@@ -9,8 +9,8 @@ class GenbaIndexTable extends React.Component {
         return (
             <table className="table table-hover">
               <thead>
-                <th>タイトル</th>
                 <th>日時</th>
+                <th>タイトル</th>
                 <th>会場</th>
                 <th>状態</th>
               </thead>
@@ -33,8 +33,8 @@ class GenbaIndexTableRow extends React.Component {
     render() {
         return (
             <tr className={this.props.status || "warning"}>
-              <td><a href={this.props.link}>{this.props.title}</a></td>
               <td className="text-nowrap">{this.props.start_at}</td>
+              <td><a href={this.props.link}>{this.props.title}</a></td>
               <td>{this.props.location.name}</td>
               <td>{this.props.status ? "公開" : "下書き"}</td>
             </tr>

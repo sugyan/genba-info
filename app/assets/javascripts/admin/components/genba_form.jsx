@@ -44,13 +44,10 @@ class GenbaForm extends React.Component {
                 required={true}
                 error={!! this.props.errors["title"]}
               />
-              <InputTags
-                ref="idols"
-                name={this.generateName("idols")}
-                values={this.props.genba.idols}
-                label="出演者"
-                prefetch_url="/admin/idols.json"
-                optional={more_idols}
+              <InputDatetime
+                name={this.generateName("start_at")}
+                value={this.props.genba.start_at || ""}
+                label="日時"
               />
               <InputSelect
                 name={this.generateName("location_id")}
@@ -58,10 +55,13 @@ class GenbaForm extends React.Component {
                 label="会場"
                 prefetch_url="/admin/locations.json"
               />
-              <InputDatetime
-                name={this.generateName("start_at")}
-                value={this.props.genba.start_at || ""}
-                label="日時"
+              <InputTags
+                ref="idols"
+                name={this.generateName("idols")}
+                values={this.props.genba.idols}
+                label="出演者"
+                prefetch_url="/admin/idols.json"
+                optional={more_idols}
               />
               <InputTextarea
                 name={this.generateName("description")}

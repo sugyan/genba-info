@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # Admin namespace
   namespace :admin, as: 'editor' do
     root 'root#index'
+    get  'source/:id' => 'root#source', as: 'source'
     resources :genbas
     resources :idols
     resources :locations

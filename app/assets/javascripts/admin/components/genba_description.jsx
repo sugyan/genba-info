@@ -3,10 +3,10 @@ class GenbaDescription extends React.Component {
         return {
             id: React.PropTypes.number.isRequired,
             title: React.PropTypes.string.isRequired,
+            start_at: React.PropTypes.string.isRequired,
+            location: React.PropTypes.object.isRequired,
             idols: React.PropTypes.array.isRequired,
             more_idols: React.PropTypes.bool.isRequired,
-            location: React.PropTypes.object.isRequired,
-            start_at: React.PropTypes.string.isRequired,
             description: React.PropTypes.string.isRequired,
             urls: React.PropTypes.array.isRequired,
             status: React.PropTypes.bool.isRequired,
@@ -32,12 +32,12 @@ class GenbaDescription extends React.Component {
               <dd>{this.props.id}</dd>
               <dt>タイトル</dt>
               <dd>{this.props.title}</dd>
-              <dt>出演</dt>
-              <dd>{idols}</dd>
-              <dt>会場</dt>
-              <dd>{this.props.location.name}</dd>
               <dt>日時</dt>
               <dd>{this.props.start_at} 〜 </dd>
+              <dt>会場</dt>
+              <dd>{this.props.location.name}</dd>
+              <dt>出演</dt>
+              <dd>{idols}</dd>
               <dt>詳細</dt>
               <dd><pre>{this.props.description}</pre></dd>
               <dt>参照URL</dt>
