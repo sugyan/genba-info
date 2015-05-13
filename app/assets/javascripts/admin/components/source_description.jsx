@@ -31,7 +31,6 @@ class SourceDescription extends React.Component {
               <dd><a href={this.props.url}>{this.props.url}</a></dd>
               <dt>状態</dt>
               <dd>{this.props.status ? "処理済" : "未処理"}</dd>
-              <dd><a href={this.props.url}>{this.props.url}</a></dd>
               <dt>作成日時</dt>
               <dd>{this.props.created_at}</dd>
               <dt>更新日時</dt>

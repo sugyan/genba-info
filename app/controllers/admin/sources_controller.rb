@@ -4,7 +4,15 @@ class Admin::SourcesController < AdminController
 
   # GET /admin/sources
   def index
-    @sources = Source.where("start_at >= ?", Date.today).order(:start_at)
+    p = params.permit(:date, :status)
+    # 指定日付以降のもの(デフォルトで今日)
+    @source = Source.where("start_at >= ?", Date.parse(p.fetch(:date, Date.today.to_s)))
+    # statusでも絞り込みはできるようにしておく
+    if p[:status]
+      @source = @source.where(status: p[:status].to_i)
+    end
+    @sources = @source
+               .order(:start_at)
                .page(params[:page]).per(25)
   end
 

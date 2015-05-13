@@ -1,4 +1,5 @@
 <h3>現場情報</h3>
+<%= react_component "SourceSearchPanel", { params: params.permit(:date) } %>
 <%= page_entries_info @sources %>
 <%= react_component "SourceIndexTable", {
   sources: @sources.map{ |source|
