@@ -4,7 +4,13 @@ class Admin::GenbasController < AdminController
 
   # GET /admin/genbas
   def index
-    @genbas = Genba.includes(:idols, :location).order(start_at: :desc)
+    p = params.permit(:date)
+    @genbas = Genba.all.includes(:idols, :location)
+    if date = Date.parse(p[:date])
+      @genbas = @genbas.where("start_at >= ? AND start_at < ?", date, date + 1)
+    end
+    @genbas = @genbas
+              .order(:start_at)
               .page(params[:page]).per(25)
   end
 

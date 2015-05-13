@@ -7,10 +7,8 @@ class Admin::SourcesController < AdminController
     p = params.permit(:date, :status)
     # 指定日付以降のもの(デフォルトで今日)
     @source = Source.where("start_at >= ?", Date.parse(p.fetch(:date, Date.today.to_s)))
-    # statusでも絞り込みはできるようにしておく
-    if p[:status]
-      @source = @source.where(status: p[:status].to_i)
-    end
+    # statusはデフォルト0
+    @source = @source.where(status: p.fetch(:status, "0").to_i)
     @sources = @source
                .order(:start_at)
                .page(params[:page]).per(25)
