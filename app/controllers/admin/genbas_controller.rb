@@ -6,7 +6,8 @@ class Admin::GenbasController < AdminController
   def index
     p = params.permit(:date)
     @genbas = Genba.all.includes(:idols, :location)
-    if date = Date.parse(p[:date])
+    if p[:date]
+      date = Date.parse(p[:date])
       @genbas = @genbas.where("start_at >= ? AND start_at < ?", date, date + 1)
     end
     @genbas = @genbas
