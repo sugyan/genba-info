@@ -1,5 +1,5 @@
 <h3>情報詳細</h3>
-<%= react_component "SourceDescription", @source.serializable_hash.merge(
+<%= react_component "SourceDescription", @source.attributes.merge(
   created_at: @source.created_at.strftime('%Y-%m-%d %H:%M:%S'),
   updated_at: @source.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
   start_at: @source.start_at.strftime('%Y-%m-%d %H:%M'),
@@ -10,6 +10,12 @@
       href: editor_new_genba_path(@source),
       text: "この情報を元に現場を登録する",
       classes: ["btn", "btn-primary"],
+    },
+    {
+      href: editor_source_path(@source),
+      text: "処理済みにする",
+      method: :patch,
+      classes: ["btn", "btn-danger"],
     },
   ],
 } %>

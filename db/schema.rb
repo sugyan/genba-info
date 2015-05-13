@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150512121859) do
+ActiveRecord::Schema.define(version: 20150513131014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,16 +84,16 @@ ActiveRecord::Schema.define(version: 20150512121859) do
   add_index "locations", ["name"], name: "index_locations_on_name", unique: true, using: :btree
 
   create_table "sources", force: :cascade do |t|
-    t.string   "provider",                null: false
-    t.string   "keystr",                  null: false
+    t.string   "provider",                    null: false
+    t.string   "keystr",                      null: false
     t.string   "title"
     t.datetime "start_at"
     t.string   "location"
     t.text     "description"
     t.text     "url"
-    t.integer  "status",      default: 0, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "status",      default: false, null: false
   end
 
   add_index "sources", ["provider", "keystr"], name: "index_sources_on_provider_and_keystr", unique: true, using: :btree
