@@ -29,7 +29,7 @@ class Admin::SourcesController < AdminController
   # PATCH/PUT /admin/sources/1
   def update
     @source.update({ status: 1 })
-    redirect_to editor_source_url(@source), notice: "更新されました"
+    redirect_to editor_sources_url, notice: "更新されました"
   end
 
   private
