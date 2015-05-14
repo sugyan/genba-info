@@ -45,9 +45,6 @@ class InputMultiple extends React.Component {
             disable_button: true
         });
     }
-    componentDidUpdate() {
-        React.findDOMNode(this.refs[this.state.values.length - 1]).focus();
-    }
     render() {
         var inputs = this.state.values.map((e, i) => {
             return (
