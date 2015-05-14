@@ -1,8 +1,0 @@
-<h2>登録アイドル一覧</h2>
-<%= react_component "IdolList", {
-  idols: @idols.map{ |idol|
-    idol.serializable_hash.merge(link: idol_detail_path(idol))
-  }
-}, {
-  prerender: true
-} %>

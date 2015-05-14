@@ -17,7 +17,7 @@ class Genba < ActiveRecord::Base
       start_at: I18n.l(self.start_at, format: '%-m月%-d日(%a) %H:%M'),
       location: self.location.name,
       idols: self.idols.map{ |idol| idol.serializable_hash(only: [:name, :kana]) },
-      link:  Rails.application.routes.url_helpers.genba_detail_path(self),
+      link:  Rails.application.routes.url_helpers.genba_path(self),
     )
   end
 
@@ -25,12 +25,15 @@ class Genba < ActiveRecord::Base
     idols = self.idols.order(:kana).map do |idol|
       idol.serializable_hash(only: [:name]).merge(
         id: idol.to_param,
-        link: Rails.application.routes.url_helpers.idol_detail_path(idol),
+        link: Rails.application.routes.url_helpers.idol_path(idol),
       )
     end
+    location = self.location.serializable_hash(only: [:name, :address]).merge(
+      link: Rails.application.routes.url_helpers.location_path(self.location),
+    )
     self.serializable_hash(only: [:title, :description, :more_idols, :urls]).merge(
       start_at: I18n.l(self.start_at, format: '%Y年%-m月%-d日(%a) %H:%M'),
-      location: self.location.serializable_hash(only: [:name, :address, :lat, :lng]),
+      location: location,
       idols: idols,
     )
   end

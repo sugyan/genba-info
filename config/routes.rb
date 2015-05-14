@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   root 'root#index'
 
   # Front pages
-  get 'detail/:id' => 'root#genba', as: 'genba_detail'
-  get 'idol/list'  => 'root#idol_list'
-  get 'idol/:id'   => 'root#idol_detail', as: 'idol_detail'
+  get 'detail/:id'   => 'genbas#show', as: :genba
+  get 'idol/:id'     => 'idols#show', as: :idol
+  get 'location/:id' => 'locations#show', as: :location
 
   # Admin namespace
   namespace :admin, as: 'editor' do
