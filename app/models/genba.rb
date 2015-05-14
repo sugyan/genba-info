@@ -22,7 +22,7 @@ class Genba < ActiveRecord::Base
   end
 
   def attributes_for_detail
-    idols = self.idols.map do |idol|
+    idols = self.idols.order(:kana).map do |idol|
       idol.serializable_hash(only: [:name]).merge(
         id: idol.to_param,
         link: Rails.application.routes.url_helpers.idol_detail_path(idol),
