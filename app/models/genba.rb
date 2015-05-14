@@ -12,17 +12,11 @@ class Genba < ActiveRecord::Base
   validates :idols, :location, :start_at, presence: true
 
   def attributes_for_list
-    idols = self.idols.order(:kana).map do |idol|
-      idol.name
-    end
-    if self.more_idols
-      idols << "他"
-    end
-    self.serializable_hash(only: [:title]).merge(
+    self.serializable_hash(only: [:title, :more_idols]).merge(
       id: self.to_param,
       start_at: I18n.l(self.start_at, format: '%-m月%-d日(%a) %H:%M'),
       location: self.location.name,
-      idols: idols,
+      idols: self.idols.map{ |idol| idol.serializable_hash(only: [:name, :kana]) },
       link:  Rails.application.routes.url_helpers.genba_detail_path(self),
     )
   end

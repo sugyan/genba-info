@@ -20,10 +20,23 @@ class GenbaListRow extends React.Component {
             title: React.PropTypes.string.isRequired,
             link: React.PropTypes.string.isRequired,
             location: React.PropTypes.string.isRequired,
-            idols: React.PropTypes.array.isRequired
+            idols: React.PropTypes.array.isRequired,
+            more_idols: React.PropTypes.bool.isRequired
         };
     }
     render() {
+        var idols = this.props.idols.sort((a, b) => {
+            if (a.kana > b.kana) {
+                return 1;
+            }
+            if (a.kana < b.kana) {
+                return -1;
+            }
+            return 0;
+        }).map((e) => e.name);
+        if (this.props.more_idols) {
+            idols.push("他");
+        }
         return (
             <tr>
               <td>
@@ -39,7 +52,7 @@ class GenbaListRow extends React.Component {
                     会場: {this.props.location}
                   </li>
                   <li>
-                    出演: {this.props.idols.join("、")}
+                    出演: {idols.join("、")}
                   </li>
                 </ul>
               </td>
