@@ -4,15 +4,12 @@ class Admin::GenbasController < AdminController
 
   # GET /admin/genbas
   def index
-    p = params.permit(:date)
-    @genbas = Genba.all.includes(:idols, :location)
-    if p[:date]
-      date = Date.parse(p[:date])
-      @genbas = @genbas.where("start_at >= ? AND start_at < ?", date, date + 1)
-    end
-    @genbas = @genbas
-              .order(:start_at)
-              .page(params[:page]).per(25)
+    p = params.permit(:mindate)
+    # 指定日付以降のもの(default: today)
+    @genbas = Genba.includes(:idols, :location)
+      .where("start_at >= ?", p.fetch(:mindate, Date.today.to_s))
+      .order(:start_at)
+      .page(params[:page]).per(25)
   end
 
   # GET /admin/genbas/1

@@ -18,3 +18,5 @@
 //= require react_ujs
 //= require components
 //= require common
+//= require google-analytics-turbolinks
+//= require google_analytics.js

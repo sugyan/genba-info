@@ -8,4 +8,14 @@ class Idol < ActiveRecord::Base
   validates :name, :kana, presence: true
   validates :name, uniqueness: true
   validates :kana, format: { with: /\A(?:\p{Hiragana}|ー)+\z/, message: 'はひらがなで入力してください。' }
+
+  def attributes_for_detail
+    genbas = self.genbas
+      .where(status: true)
+      .where("start_at >= ?", Date.today.to_s)
+      .order(:start_at)
+    self.serializable_hash(only: [:name, :kana, :url]).merge(
+      genbas: genbas.map{ |genba| genba.attributes_for_list }
+    )
+  end
 end

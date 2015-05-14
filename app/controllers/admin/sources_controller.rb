@@ -4,14 +4,13 @@ class Admin::SourcesController < AdminController
 
   # GET /admin/sources
   def index
-    p = params.permit(:date, :status)
-    # 指定日付以降のもの(デフォルトで今日)
-    @source = Source.where("start_at >= ?", Date.parse(p.fetch(:date, Date.today.to_s)))
-    # statusはデフォルト0
-    @source = @source.where(status: p.fetch(:status, "0").to_i)
-    @sources = @source
-               .order(:start_at)
-               .page(params[:page]).per(25)
+    p = params.permit(:mindate, :status)
+    # 指定日付以降のもの(default: today)
+    @sources = Source
+      .where("start_at >= ?", p.fetch(:mindate, Date.today))
+      .where(status: p.fetch(:status, "0").to_i) # status指定可(default: 0)
+      .order(:start_at)
+      .page(params[:page]).per(25)
   end
 
   # GET /admin/sources/1

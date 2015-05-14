@@ -1,32 +1,19 @@
 class IdolDetail extends React.Component {
     static get propTypes() {
         return {
-            idol: React.PropTypes.object.isRequired
+            url: React.PropTypes.string.isRequired,
+            genbas: React.PropTypes.array.isRequired
         };
     }
     render() {
         return (
-            <IdolDetailDescription {...this.props.idol} />
-        );
-    }
-}
-
-class IdolDetailDescription extends React.Component {
-    static get propTypes() {
-        return {
-            url: React.PropTypes.string
-        };
-    }
-    render() {
-        var url = this.props.url && (
             <div>
-              <dd><a href={this.props.url} target="_blank">{this.props.url}</a></dd>
+              <dl className="dl-horizontal">
+                <dd><a href={this.props.url} target="_blank">{this.props.url}</a></dd>
+              </dl>
+              <h4>直近の現場予定</h4>
+              <GenbaList genbas={this.props.genbas} />
             </div>
-        );
-        return (
-            <dl className="dl-horizontal">
-              {url}
-            </dl>
         );
     }
 }
