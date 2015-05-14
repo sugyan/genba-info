@@ -10,7 +10,7 @@ class Idol < ActiveRecord::Base
   validates :kana, format: { with: /\A(?:\p{Hiragana}|ー)+\z/, message: 'はひらがなで入力してください。' }
 
   def attributes_for_detail
-    genbas = self.genbas
+    genbas = self.genbas.includes(:idols, :location)
       .where(status: true)
       .where("start_at >= ?", Date.today.to_s)
       .order(:start_at)
