@@ -17,7 +17,7 @@ class LocationDetail extends React.Component {
                 <dd><a href={this.props.url} target="_blank">{this.props.url}</a></dd>
               </dl>
               <LocationDetailMap lat={this.props.lat} lng={this.props.lng} />
-              <h4>直近の予定</h4>
+              <h4>今後の現場予定</h4>
               <GenbaList genbas={this.props.genbas} />
             </div>
         );

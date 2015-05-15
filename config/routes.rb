@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
   # Front pages
   get 'detail/:id'   => 'genbas#show', as: :genba
-  get 'idol/:id'     => 'idols#show', as: :idol
-  get 'location/:id' => 'locations#show', as: :location
+  resources :idols, only: [:index, :show]
+  resources :locations, only: [:show]
+
+  get 'search' => 'search#index'
+  get 'about'  => 'root#about'
 
   # Admin namespace
   namespace :admin, as: 'editor' do

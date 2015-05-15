@@ -16,6 +16,8 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require typeahead.js.js
+//= require tagsinput
 //= require components
 //= require common
 //= require google-analytics-turbolinks

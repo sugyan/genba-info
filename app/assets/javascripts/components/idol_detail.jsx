@@ -11,7 +11,7 @@ class IdolDetail extends React.Component {
               <dl className="dl-horizontal">
                 <dd><a href={this.props.url} target="_blank">{this.props.url}</a></dd>
               </dl>
-              <h4>直近の現場予定</h4>
+              <h4>今後の出演予定</h4>
               <GenbaList genbas={this.props.genbas} />
             </div>
         );

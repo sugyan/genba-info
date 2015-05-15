@@ -15,11 +15,6 @@
  *= require_self
  */
 
-.form-inline .form-control {
-    display: inline-block;
-    width: auto;
-}
-
 .bootstrap-tagsinput {
     width: 100%;
     line-height: 28px;

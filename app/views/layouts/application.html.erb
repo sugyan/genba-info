@@ -44,9 +44,16 @@
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="/">現場.info <small>(α)</small></a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "検索", search_path %></li>
+            <li><%= link_to "about", about_path %></li>
           </ul>
         </div>
       </div>

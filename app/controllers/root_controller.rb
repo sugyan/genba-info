@@ -6,4 +6,7 @@ class RootController < ApplicationController
       .order(:start_at)
       .page(1).per(20)
   end
+
+  def about
+  end
 end
