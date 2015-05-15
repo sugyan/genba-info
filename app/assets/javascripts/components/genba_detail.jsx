@@ -30,13 +30,15 @@ class GenbaDetailLocation extends React.Component {
     static get propTypes() {
         return {
             name: React.PropTypes.string.isRequired,
+            link: React.PropTypes.string.isRequired,
             address: React.PropTypes.string.isRequired
         };
     }
     render() {
         return (
             <div>
-              {this.props.name} ({this.props.address})
+              <a href={this.props.link}>{this.props.name}</a>
+              &nbsp;({this.props.address})
             </div>
         );
     }

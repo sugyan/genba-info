@@ -4,8 +4,10 @@ class Admin::LocationsController < AdminController
 
   # GET /admin/locations
   def index
-    @locations = Location.order(geohash: :desc)
-                 .page(params[:page]).per(25)
+    respond_to do |format|
+      format.html { @locations = Location.order(geohash: :desc).page(params[:page]).per(25) }
+      format.json { @locations = Location.order(geohash: :desc) }
+    end
   end
 
   # GET /admin/locations/1

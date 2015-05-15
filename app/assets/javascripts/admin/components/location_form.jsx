@@ -65,7 +65,7 @@ class LocationForm extends React.Component {
     componentDidMount() {
         /* map */
         this.map = new google.maps.Map(React.findDOMNode(this.refs.map), {
-            zoom: 16,
+            zoom: 17,
             center: new google.maps.LatLng(0.0, 0.0),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
