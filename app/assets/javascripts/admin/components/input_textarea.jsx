@@ -22,7 +22,7 @@ class InputTextarea extends React.Component {
               <textarea
                 name={this.props.name}
                 className="form-control"
-                rows="5"
+                rows="7"
                 value={this.state.value}
                 onChange={this.handleChange.bind(this)}
               />

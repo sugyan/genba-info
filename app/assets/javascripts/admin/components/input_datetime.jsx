@@ -23,7 +23,7 @@ class InputDatetime extends React.Component {
                 ref="input"
                 name={this.props.name}
                 type="datetime-local"
-                step="900"
+                step="300"
                 value={this.state.value}
                 className="form-control"
                 onChange={this.handleChange.bind(this)}
