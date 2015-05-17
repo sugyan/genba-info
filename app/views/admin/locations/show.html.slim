@@ -1,0 +1,15 @@
+h3 会場詳細
+= react_component "LocationDescription", @location.serializable_hash.merge( \
+    created_at: @location.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+    updated_at: @location.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
+  )
+
+hr
+
+.links
+  a.btn.btn-link href=editor_locations_path
+    | 一覧へ戻る
+  a.btn.btn-info href=edit_editor_location_path(@location)
+    | 編集
+  a.btn.btn-danger href=editor_location_path(@location) data-method=:delete data-confirm="削除しますか？"
+    | 削除

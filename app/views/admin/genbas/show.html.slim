@@ -1,0 +1,19 @@
+h3 現場詳細
+= react_component "GenbaDescription", @genba.serializable_hash.merge( \
+    created_at: @genba.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+    updated_at: @genba.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
+    start_at: @genba.start_at.strftime('%Y-%m-%d %H:%M'),
+    idols: @genba.idols.map{ |idol| \
+      idol.serializable_hash.merge(link: editor_idol_path(idol)) \
+    },
+    location: @genba.location,
+  )
+hr
+
+.links
+  a.btn.btn-link href=editor_genbas_path
+    | 一覧へ戻る
+  a.btn.btn-info href=edit_editor_genba_path(@genba)
+    | 編集
+  a.btn.btn-danger href=editor_genba_path(@genba) data-method=:delete data-confirm="削除しますか？"
+    | 削除

@@ -1,0 +1,13 @@
+h3
+  | ログイン
+= react_component "LoginForm", { \
+    action: session_path(resource_name),
+    method: :post,
+    token: form_authenticity_token,
+  }
+
+hr
+
+.links
+  a.btn.btn-link href=new_password_path(resource_name)
+    | パスワードを忘れた場合

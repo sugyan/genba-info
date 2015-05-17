@@ -1,0 +1,16 @@
+h3 情報詳細
+= react_component "SourceDescription", @source.attributes.merge( \
+    created_at: @source.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+    updated_at: @source.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
+    start_at: @source.start_at.strftime('%Y-%m-%d %H:%M'),
+  )
+
+.links
+  a.btn.btn-primary href=editor_new_genba_path(@source)
+    | この情報を元に現場を登録する
+  a.btn.btn-danger href=editor_source_path(@source) data-method=:patch
+    | 処理済みにする
+hr
+
+a.btn.btn-link href=editor_sources_path
+  | 一覧へ戻る

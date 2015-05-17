@@ -1,0 +1,20 @@
+h3 現場情報編集
+= react_component "GenbaForm", { \
+    genba: @genba.serializable_hash.merge( \
+      start_at: @genba.start_at.strftime('%Y-%m-%dT%H:%M'),
+      idols: @genba.idols,
+      location: @genba.location,
+    ),
+    action: editor_genba_path(@genba),
+    method: :patch,
+    token: form_authenticity_token,
+    errors: @genba.errors.to_hash(true),
+    submit: "更新",
+  }
+hr
+
+.links
+  a.btn.btn-link href=editor_genba_path(@genba)
+    | 詳細
+  a.btn.btn-link href=editor_genbas_path
+    | 一覧へ戻る

@@ -39,6 +39,8 @@ gem 'devise', '~> 3.4'
 gem 'twitter-bootstrap-rails', '~> 3.2'
 # Use React
 gem 'react-rails', '~> 1.0'
+# Slim
+gem 'slim-rails', '~> 3.0'
 # Google Analytics
 gem 'google-analytics-turbolinks', '~> 0.0'
 # Obfuscate ID

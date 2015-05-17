@@ -1,0 +1,4 @@
+h3
+  = @idol.name
+= @idol.kana
+= react_component "IdolDetail", @idol.attributes_for_detail, { prerender: true }
