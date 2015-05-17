@@ -1,0 +1,13 @@
+h3
+  | アイドル一覧
+= page_entries_info @idols
+= react_component "IdolIndexTable", { \
+    idols: @idols.map{ |idol| idol.serializable_hash.merge(link: editor_idol_path(idol)) },
+  }
+nav.text-center
+  = paginate @idols
+hr
+
+.links
+  a.btn.btn-link href=new_editor_idol_path
+    | 新規登録

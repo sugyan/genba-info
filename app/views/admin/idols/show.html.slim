@@ -1,0 +1,46 @@
+h3 アイドル詳細
+dl
+  dt ID
+  dd = @idol.id
+  dt 名前
+  dd = @idol.name
+  dt ふりがな
+  dd = @idol.kana
+  dt URL
+  dd
+    - if @idol.url?
+      = link_to @idol.url, @idol.url, target: "_blank"
+    - else
+      | なし
+  dt Blog
+  dd
+    - if @idol.blog?
+      = link_to @idol.blog, @idol.blog, target: "_blank"
+    - else
+      | なし
+  dt Twitter
+  dd
+    - if @idol.twitter?
+      = link_to @idol.twitter, @idol.twitter, target: "_blank"
+    - else
+      | なし
+  dt Google Calendar
+  dd
+    - if @idol.cid?
+      = @idol.cid
+    - else
+      | なし
+  dt 作成日時
+  dd = @idol.created_at.strftime('%Y-%m-%d %H:%M:%S')
+  dt 更新日時
+  dd = @idol.updated_at.strftime('%Y-%m-%d %H:%M:%S')
+
+hr
+
+.links
+  a.btn.btn-link href=editor_idols_path
+    | 一覧へ戻る
+  a.btn.btn-info href=edit_editor_idol_path(@idol)
+    | 編集
+  a.btn.btn-danger href=editor_idol_path(@idol) data-method=:delete data-confirm="削除しますか？"
+    | 削除

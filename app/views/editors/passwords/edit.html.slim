@@ -1,0 +1,15 @@
+h3
+  | パスワード変更
+= react_component "PasswordEditForm", { \
+    action: password_path(resource_name),
+    method: :put,
+    token: form_authenticity_token,
+    reset_password_token: resource.reset_password_token,
+    errors: resource.errors.to_hash(true),
+  }
+
+hr
+
+.links
+  a.btn.btn-link href=new_session_path(resource_name)
+    | ログイン

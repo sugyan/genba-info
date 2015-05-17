@@ -1,0 +1,8 @@
+h3
+  | 検索
+= react_component "SearchForm", { params: params.permit(:mindate), idols: @idols || [] }, { prerender: true }
+p
+  = page_entries_info @genbas
+= react_component "GenbaList", { genbas: @genbas.map{ |genba| genba.attributes_for_list } }, { prerender: true }
+nav.text-center
+  = link_to_next_page @genbas, "もっと見る", params: params

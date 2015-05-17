@@ -1,0 +1,21 @@
+h3 アイドル情報編集
+- if not @idol.errors.empty?
+  .alert.alert-danger.alert-dismissible
+    button.close[type="button" data-dismiss="alert" aria-label="Close"]
+      span[aria-hidden="true"]
+        | ×
+    - @idol.errors.to_hash(true).values.flatten.each do |message|
+      p
+        span.glyphicon.glyphicon-exclamation-sign[aria-hidden="true"]
+        span.sr-only
+          | Error:
+        = message
+= render partial: "form", locals: { idol: @idol, url: editor_idol_path(@idol) }
+
+hr
+
+.links
+  a.btn.btn-link href=editor_idol_path(@idol)
+    | 詳細
+  a.btn.btn-link href=editor_idols_path
+    | 一覧へ戻る

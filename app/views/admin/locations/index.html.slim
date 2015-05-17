@@ -1,0 +1,13 @@
+h3 会場一覧
+= page_entries_info @locations
+= react_component "LocationIndex", { \
+    locations: @locations.map{ |location| location.serializable_hash.merge(link: editor_location_path(location)) },
+  }
+nav.text-center
+  = paginate @locations
+
+hr
+
+.links
+  a.btn.btn-link href=new_editor_location_path
+    | 新規登録
