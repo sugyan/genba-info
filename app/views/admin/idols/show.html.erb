@@ -1,9 +1,48 @@
 <h3>アイドル詳細</h3>
-<%= react_component "IdolDescription", @idol.serializable_hash.merge(
-  created_at: @idol.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-  updated_at: @idol.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
-) %>
+
+<dl>
+  <dt>ID</dt>
+  <dd><%= @idol.id %></dd>
+  <dt>名前</dt>
+  <dd><%= @idol.name %></dd>
+  <dt>ふりがな</dt>
+  <dd><%= @idol.kana %></dd>
+  <dt>URL</dt>
+  <dd>
+    <% if @idol.url? %>
+      <%= link_to @idol.url, @idol.url, target: "_blank" %></dd>
+    <% else %>
+      なし
+    <% end %>
+  <dt>Blog</dt>
+  <dd>
+    <% if @idol.blog? %>
+      <%= link_to @idol.blog, @idol.blog, target: "_blank" %></dd>
+    <% else %>
+      なし
+    <% end %>
+  <dt>Twitter</dt>
+  <dd>
+    <% if @idol.twitter? %>
+      <%= link_to @idol.twitter, @idol.twitter, target: "_blank" %></dd>
+    <% else %>
+      なし
+    <% end %>
+  <dt>Google Calendar</dt>
+  <dd>
+    <% if @idol.cid? %>
+      <%= @idol.cid %></dd>
+    <% else %>
+      なし
+    <% end %>
+  <dt>作成日時</dt>
+  <dd><%= @idol.created_at.strftime('%Y-%m-%d %H:%M:%S') %></dd>
+  <dt>更新日時</dt>
+  <dd><%= @idol.updated_at.strftime('%Y-%m-%d %H:%M:%S') %></dd>
+</dl>
+
 <hr>
+
 <%= react_component "Links", {
   links: [
     {

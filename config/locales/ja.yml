@@ -4,6 +4,8 @@ ja:
       idol:
         name: 名前
         kana: ふりがな
+        url: 公式URL
+        cid: Google Calendar ID
       editor:
         password: パスワード
         password_confirmation: 確認再入力

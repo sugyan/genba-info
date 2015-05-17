@@ -55,6 +55,6 @@ class Admin::IdolsController < AdminController
   end
 
   def idol_params
-    params.require(:idol).permit(:name, :kana, :url)
+    params.require(:idol).permit(:name, :kana, :url, :blog, :twitter, :cid)
   end
 end

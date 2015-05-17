@@ -36,10 +36,10 @@ class SearchMainForm extends React.Component {
     }
     render() {
         return (
-            <form className="form-horizontal">
+            <form className="form">
               <div className="form-group">
-                <label className="col-xs-3 col-sm-2 control-label">日付</label>
-                <div className="col-xs-9 form-inline">
+                <label>日付</label>
+                <div className="form-inline">
                   <input
                     type="date"
                     name="mindate"
@@ -51,15 +51,11 @@ class SearchMainForm extends React.Component {
                 </div>
               </div>
               <div className="form-group">
-                <label className="col-xs-3 col-sm-2 control-label">アイドル</label>
-                <div className="col-xs-9">
-                  <IdolTagsInput idols={this.props.idols} />
-                </div>
+                <label>アイドル</label>
+                <IdolTagsInput idols={this.props.idols} />
               </div>
               <div className="form-group">
-                <div className="col-xs-offset-3 col-sm-offset-2 col-xs-9">
-                  <button type="submit" className="btn btn-primary">検索</button>
-                </div>
+                <button type="submit" className="btn btn-primary">検索</button>
               </div>
             </form>
         );
@@ -86,10 +82,9 @@ class IdolTagsInput extends React.Component {
                 displayKey: "name",
                 source: new Bloodhound({
                     datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-                    queryTokenizer: (s) => [s],
+                    queryTokenizer: Bloodhound.tokenizers.whitespace,
                     prefetch: {
-                        url: "/idols.json",
-                        cache: false
+                        url: "/idols.json"
                     }
                 })
             }
