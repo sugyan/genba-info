@@ -1,0 +1,47 @@
+- if not genba.errors.empty?
+  .alert.alert-danger.alert-dismissible
+    button.close[type="button" data-dismiss="alert" aria-label="Close"]
+      span[aria-hidden="true"]
+        | ×
+    - genba.errors.to_hash(true).values.flatten.each do |message|
+      p
+        span.glyphicon.glyphicon-exclamation-sign[aria-hidden="true"]
+        span.sr-only
+          | Error:
+        = message
+= form_for genba, url: url do |form|
+  .form-group
+    = form.label :title
+    = form.text_field :title, class: "form-control"
+  .form-group
+    = form.label :start_at
+    = form.datetime_local_field :start_at, class: "form-control", step: 300
+  .form-group
+    = form.label :location
+    = form.fields_for(:location_id) do |field|
+      = react_component "SelectLocation", name: field.object_name, value: genba.location_id.to_s, required: true
+  .form-group
+    = form.label :idols
+    = form.fields_for(:idols) do |field|
+      = react_component "InputIdolTags", name: field.object_name, values: genba.idols.map{ |idol| idol.serializable_hash(only: [:id, :name]) }
+    .checkbox
+      = form.label :more_idols do
+        = form.check_box :more_idols
+        | その他
+  .form-group
+    = form.label :description
+    = form.text_area :description, class: "form-control", rows: 7
+  .form-group
+    = form.label :urls
+    = form.fields_for(:urls) do |field|
+      = react_component "InputMultipleUrls", name: field.object_name, values: genba.urls
+  .form-group
+    = form.label :status
+    .radio
+      = form.label :status_false, class: "radio-inline" do
+        = form.radio_button :status, false
+        | 下書き
+      = form.label :status_true, class: "radio-inline" do
+        = form.radio_button :status, true, class: "radio-inline"
+        | 公開
+  = form.submit nil, class: "btn btn-primary"

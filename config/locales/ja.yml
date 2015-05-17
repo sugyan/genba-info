@@ -10,9 +10,13 @@ ja:
         password: パスワード
         password_confirmation: 確認再入力
       genba:
+        title: タイトル
         idols: 出演者
         start_at: 開始日時
         urls: 参照URL
+        location: 会場
+        description: 詳細
+        status: 公開ステータス
   views:
     pagination:
       first: 最初

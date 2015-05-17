@@ -34,13 +34,8 @@ dl
   dd = @idol.created_at.strftime('%Y-%m-%d %H:%M:%S')
   dt 更新日時
   dd = @idol.updated_at.strftime('%Y-%m-%d %H:%M:%S')
-
 hr
-
 .links
-  a.btn.btn-link href=editor_idols_path
-    | 一覧へ戻る
-  a.btn.btn-info href=edit_editor_idol_path(@idol)
-    | 編集
-  a.btn.btn-danger href=editor_idol_path(@idol) data-method=:delete data-confirm="削除しますか？"
-    | 削除
+  = link_to "一覧へ戻る", editor_idols_path, class: "btn btn-link"
+  = link_to "編集", edit_editor_idol_path(@idol), class: "btn btn-info"
+  = link_to "削除", editor_idol_path(@idol), class: "btn btn-danger", "data-method": :delete, "data-confirm": "削除しますか？"

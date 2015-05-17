@@ -1,13 +1,17 @@
-h3
-  | アイドル一覧
+h3 アイドル一覧
 = page_entries_info @idols
-= react_component "IdolIndexTable", { \
-    idols: @idols.map{ |idol| idol.serializable_hash.merge(link: editor_idol_path(idol)) },
-  }
+table.table.table-hover
+  thead
+    th 名前
+    th ふりがな
+  - @idols.each do |idol|
+    tr
+      td
+        = link_to idol.name, editor_idol_path(idol)
+      td
+        = idol.kana
 nav.text-center
   = paginate @idols
 hr
-
 .links
-  a.btn.btn-link href=new_editor_idol_path
-    | 新規登録
+  = link_to "新規登録", new_editor_idol_path, class: "btn btn-link"

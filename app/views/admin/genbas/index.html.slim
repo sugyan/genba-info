@@ -1,18 +1,25 @@
-h3
-  | 現場一覧
+h3 現場一覧
 = react_component "GenbaSearchPanel", { params: params.permit(:mindate) }
 = page_entries_info @genbas
-= react_component "GenbaIndexTable", { genbas: @genbas.map{ |genba| \
-      genba.serializable_hash.merge( \
-        start_at: genba.start_at.strftime('%Y-%m-%d %H:%M'),
-        link: editor_genba_path(genba),
-        location: genba.location,
-      ) \
-    },
-  }
+table.table.table-hover
+  thead
+    th 日時
+    th タイトル
+    th 会場
+    th 状態
+  - @genbas.each do |genba|
+    tr class=("warning" if not genba.status)
+      td.text-nowrap
+        = genba.start_at.strftime('%Y-%m-%d %H:%M')
+      td
+        a href=editor_genba_path(genba)
+          = genba.title
+      td
+        = genba.location.name
+      td.text-nowrap
+        = genba.status ? "公開" : "下書き"
 nav.text-center
   = paginate @genbas
 hr
-
 a.btn.btn-link href=new_editor_genba_path
   | 新規登録

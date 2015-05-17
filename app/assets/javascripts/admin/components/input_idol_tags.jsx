@@ -1,4 +1,4 @@
-class InputTags extends React.Component {
+class InputIdolTags extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -8,10 +8,7 @@ class InputTags extends React.Component {
     static get propTypes() {
         return {
             name: React.PropTypes.string.isRequired,
-            values: React.PropTypes.array,
-            prefetch_url: React.PropTypes.string.isRequired,
-            label: React.PropTypes.string,
-            optional: React.PropTypes.element
+            values: React.PropTypes.array
         };
     }
     static get defaultProps() {
@@ -24,11 +21,10 @@ class InputTags extends React.Component {
             datumTokenizer: Bloodhound.tokenizers.obj.whitespace('words'),
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             prefetch: {
-                url: this.props.prefetch_url,
+                url: "/admin/idols.json",
                 cache: false
             }
         });
-
         var input = $(React.findDOMNode(this.refs["input"]));
         input.tagsinput({
             itemValue: "id",
@@ -44,17 +40,13 @@ class InputTags extends React.Component {
     }
     render() {
         return (
-            <div className="form-group">
-              <label className="control-label">{this.props.label}</label>
-              <div className="form-control-static" style={{ padding: 0 }}>
-                <input
-                  name={this.props.name}
-                  ref="input"
-                  type="hidden"
-                  readOnly={true}
-                />
-              </div>
-              {this.props.optional}
+            <div className="form-control-static" style={{ padding: 0 }}>
+              <input
+                name={this.props.name}
+                ref="input"
+                type="hidden"
+                readOnly={true}
+              />
             </div>
         );
     }

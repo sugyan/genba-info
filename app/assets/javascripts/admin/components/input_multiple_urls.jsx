@@ -1,4 +1,4 @@
-class InputMultiple extends React.Component {
+class InputMultipleUrls extends React.Component {
     constructor(props) {
         super(props);
         var values = this.props.values;
@@ -13,15 +13,7 @@ class InputMultiple extends React.Component {
     static get propTypes() {
         return {
             name: React.PropTypes.string.isRequired,
-            type: React.PropTypes.string,
-            values: React.PropTypes.array.isRequired,
-            label: React.PropTypes.string,
-            error: React.PropTypes.bool
-        };
-    }
-    static get defaultProps() {
-        return {
-            type: "text",
+            values: React.PropTypes.array.isRequired
         };
     }
     handleChange(i, e) {
@@ -52,7 +44,7 @@ class InputMultiple extends React.Component {
                   <input
                     ref={i}
                     name={this.props.name + "[]"}
-                    type={this.props.type}
+                    type="url"
                     className="form-control"
                     value={e}
                     onChange={this.handleChange.bind(this, i)}
@@ -63,13 +55,8 @@ class InputMultiple extends React.Component {
                 </div>
             );
         });
-        var classes = ["form-group"];
-        if (this.props.error) {
-            classes.push("has-error");
-        }
         return (
-            <div className={classes.join(" ")}>
-              <label className="control-label">{this.props.label}</label>
+            <div>
               {inputs}
               <button type="button" className="btn" disabled={this.state.disable_button} onClick={this.handleClickAdd.bind(this)}>追加</button>
             </div>

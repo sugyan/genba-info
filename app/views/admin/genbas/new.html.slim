@@ -1,18 +1,5 @@
 h3 現場新規登録
-= react_component "GenbaForm", { \
-    genba: @genba.serializable_hash.merge( \
-      start_at: @genba.start_at.strftime('%Y-%m-%dT%H:%M'),
-      idols: @genba.idols,
-      location: @genba.location,
-    ),
-    action: editor_genbas_path,
-    method: :post,
-    token: form_authenticity_token,
-    errors: @genba.errors.to_hash(true),
-  }
-
+= render partial: "form", locals: { genba: @genba, url: editor_genbas_path }
 hr
-
 .links
-  a.btn.btn-link href=editor_genbas_path
-    | 一覧へ戻る
+  = link_to "一覧へ戻る", editor_genbas_path, class: "btn btn-link"

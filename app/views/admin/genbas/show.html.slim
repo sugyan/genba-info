@@ -1,19 +1,48 @@
 h3 現場詳細
-= react_component "GenbaDescription", @genba.serializable_hash.merge( \
-    created_at: @genba.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-    updated_at: @genba.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
-    start_at: @genba.start_at.strftime('%Y-%m-%d %H:%M'),
-    idols: @genba.idols.map{ |idol| \
-      idol.serializable_hash.merge(link: editor_idol_path(idol)) \
-    },
-    location: @genba.location,
-  )
+dl
+  dt ID
+  dd
+    = @genba.id
+  dt タイトル
+  dd
+    = @genba.title
+  dt 日時
+  dd
+    => @genba.start_at.strftime('%Y-%m-%d %H:%M')
+    | 〜
+  dt 会場
+  dd
+    = @genba.location.name
+  dt 出演
+  dd
+    span
+      - @genba.idols.each_with_index do |idol, i|
+        = link_to idol.name, editor_idol_path(idol)
+        - if i < @genba.idols.length - 1
+          | 、
+      - if @genba.more_idols
+        | 、他
+  dt 詳細
+  dd
+    pre
+      = @genba.description
+  dt 参照URL
+  dd
+    ul
+      - @genba.urls.each do |url|
+        li
+          = link_to url, url, target: "_blank"
+  dt 状態
+  dd
+    = @genba.status ? "公開" : "下書き"
+  dt 作成日時
+  dd
+    = @genba.created_at.strftime('%Y-%m-%d %H:%M:%S')
+  dt 更新日時
+  dd
+    = @genba.updated_at.strftime('%Y-%m-%d %H:%M:%S')
 hr
-
 .links
-  a.btn.btn-link href=editor_genbas_path
-    | 一覧へ戻る
-  a.btn.btn-info href=edit_editor_genba_path(@genba)
-    | 編集
-  a.btn.btn-danger href=editor_genba_path(@genba) data-method=:delete data-confirm="削除しますか？"
-    | 削除
+  = link_to "一覧へ戻る", editor_genbas_path, class: "btn btn-link"
+  = link_to "編集", edit_editor_genba_path(@genba), class: "btn btn-info"
+  = link_to "削除", editor_genba_path(@genba), class: "btn btn-danger", "data-method": :delete, "data-confirm": "削除しますか？"
