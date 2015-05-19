@@ -55,7 +55,7 @@ class Admin::LocationsController < AdminController
   end
 
   def location_params
-    p = params.require(:location).permit(:name, :address, :url, :lat, :lng)
+    p = params.require(:location).permit(:name, :address, :url, :lat, :lng, :administrative_area, :locality)
     p[:geohash] = GeoHash.encode(p[:lat].to_f, p[:lng].to_f)
     p
   end

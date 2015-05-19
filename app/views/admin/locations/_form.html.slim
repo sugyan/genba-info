@@ -1,0 +1,13 @@
+= render partial: "admin/common/errors", locals: { errors: @location.errors }
+= form_for location, url: url do |form|
+  .form-group
+    = form.label :name
+    = form.text_field :name, class: "form-control"
+  .form-group
+    = form.label :address
+    = form.fields_for(:address) do |field|
+      = react_component "ReverseGeocodingAddress", name: field.object_name, value: location.address
+  .form-group
+    = form.label :url
+    = form.url_field :url, class: "form-control"
+  = form.submit nil, class: "btn btn-primary"

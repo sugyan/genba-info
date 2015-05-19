@@ -1,14 +1,5 @@
 h3 会場新規登録
-= react_component "LocationForm", { \
-    location: @location,
-    action: editor_locations_path,
-    method: :post,
-    token: form_authenticity_token,
-    errors: @location.errors.to_hash(true),
-  }
-
+= render partial: "form", locals: { location: @location, url: editor_locations_path }
 hr
-
 .links
-  a.btn.btn-info href=editor_locations_path
-    | 一覧へ戻る
+  = link_to "一覧へ戻る", editor_locations_path, class: "btn btn-info"

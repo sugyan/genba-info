@@ -1,14 +1,18 @@
 ja:
   activerecord:
     attributes:
+      editor:
+        password: パスワード
+        password_confirmation: 確認再入力
       idol:
         name: 名前
         kana: ふりがな
         url: 公式URL
         cid: Google Calendar ID
-      editor:
-        password: パスワード
-        password_confirmation: 確認再入力
+      location:
+        name: 名前
+        address: 住所
+        url: 公式URL
       genba:
         title: タイトル
         idols: 出演者

@@ -1,15 +1,25 @@
 h3 会場詳細
-= react_component "LocationDescription", @location.serializable_hash.merge( \
-    created_at: @location.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-    updated_at: @location.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
-  )
-
+dl
+  dt ID
+  dd
+    = @location.id
+  dt 名前
+  dd
+    = @location.name
+  dt 住所
+  dd
+    = @location.address
+  dt URL
+  dd
+    = link_to @location.url, @location.url, target: "_blank"
+  dt 作成日時
+  dd
+    = @location.created_at.strftime('%Y-%m-%d %H:%M:%S')
+  dt 更新日時
+  dd
+    = @location.updated_at.strftime('%Y-%m-%d %H:%M:%S')
 hr
-
 .links
-  a.btn.btn-link href=editor_locations_path
-    | 一覧へ戻る
-  a.btn.btn-info href=edit_editor_location_path(@location)
-    | 編集
-  a.btn.btn-danger href=editor_location_path(@location) data-method=:delete data-confirm="削除しますか？"
-    | 削除
+  = link_to "一覧へ戻る", editor_locations_path, class: "btn btn-link"
+  = link_to "編集", edit_editor_location_path(@location), class: "btn btn-info"
+  = link_to "削除", editor_location_path(@location), class: "btn btn-danger", "data-method": :delete, "data-confirm": "削除しますか？"

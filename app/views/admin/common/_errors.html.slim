@@ -1,0 +1,11 @@
+- if not errors.empty?
+  .alert.alert-danger.alert-dismissible
+    button.close[type="button" data-dismiss="alert" aria-label="Close"]
+      span[aria-hidden="true"]
+        | ×
+    - errors.to_hash(true).values.flatten.each do |message|
+      p
+        span.glyphicon.glyphicon-exclamation-sign[aria-hidden="true"]
+        span.sr-only
+          | Error:
+        = message

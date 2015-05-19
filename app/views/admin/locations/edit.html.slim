@@ -1,17 +1,6 @@
 h3 会場情報編集
-= react_component "LocationForm", { \
-    location: @location,
-    action: editor_location_path(@location),
-    method: :patch,
-    token: form_authenticity_token,
-    errors: @location.errors.to_hash(true),
-    submit: "更新",
-  }
-
+= render partial: "form", locals: { location: @location, url: editor_location_path(@location) }
 hr
-
 .links
-  a.btn.btn-link href=editor_location_path(@location)
-    | 詳細
-  a.btn.btn-link href=editor_locations_path
-    | 一覧へ戻る
+  = link_to "詳細", editor_location_path(@location), class: "btn btn-link"
+  = link_to "一覧へ戻る", editor_locations_path, class: "btn btn-link"
