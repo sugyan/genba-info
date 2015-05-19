@@ -1,5 +1,17 @@
 h3 現場一覧
-= react_component "GenbaSearchPanel", { params: params.permit(:mindate) }
+.panel.panel-default
+  .panel-heading 絞り込み
+  .panel-body
+    form
+      .form-group
+        = label_tag "日付"
+        .form-inline
+          = date_field_tag :mindate, params[:mindate] || Date.today, class: "form-control"
+          span.control-label-static< 以降
+      .form-group
+        = label_tag "会場"
+        = react_component "InputLocation"
+      = submit_tag "検索", name: nil, class: "btn btn-primary"
 = page_entries_info @genbas
 table.table.table-hover
   thead
@@ -21,5 +33,5 @@ table.table.table-hover
 nav.text-center
   = paginate @genbas
 hr
-a.btn.btn-link href=new_editor_genba_path
-  | 新規登録
+.links
+  = link_to "新規登録", new_editor_genba_path, class: "btn btn-link"
