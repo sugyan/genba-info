@@ -19,7 +19,7 @@
   .form-group
     = form.label :location
     = form.fields_for(:location_id) do |field|
-      = react_component "SelectLocation", name: field.object_name, value: genba.location_id.to_s, required: true
+      = react_component "SelectLocation", name: field.object_name, value: genba.location_id.to_s
   .form-group
     = form.label :idols
     = form.fields_for(:idols) do |field|
