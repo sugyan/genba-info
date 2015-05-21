@@ -34,7 +34,9 @@ gem 'puma'
 # gem 'capistrano-rails', group: :development
 
 # Use devise for authentication
+# and Twitter OAuth
 gem 'devise', '~> 3.4'
+gem 'omniauth-twitter', '~> 1.2'
 # Use Twitter Bootstrap
 gem 'twitter-bootstrap-rails', '~> 3.2'
 # Use React
