@@ -10,7 +10,7 @@ h3 現場一覧
           span.control-label-static< 以降
       .form-group
         = label_tag "会場"
-        = react_component "InputLocation"
+        = react_component "SelectLocation", name: "location_id", value: params[:location_id]
       = submit_tag "検索", name: nil, class: "btn btn-primary"
 = page_entries_info @genbas
 table.table.table-hover
