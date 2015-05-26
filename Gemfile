@@ -43,6 +43,8 @@ gem 'twitter-bootstrap-rails', '~> 3.2'
 gem 'react-rails', '~> 1.0'
 # Slim
 gem 'slim-rails', '~> 3.0'
+# Dalli
+gem 'dalli', '~> 2.7'
 # Google Analytics
 gem 'google-analytics-turbolinks', '~> 0.0'
 # Obfuscate ID
