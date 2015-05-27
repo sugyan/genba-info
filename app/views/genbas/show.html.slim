@@ -1,3 +1,28 @@
 h3
   = @genba.title
-= react_component "GenbaDetail", @genba.attributes_for_detail, { prerender: true }
+dl
+  dt 日時
+  dd
+    => l(@genba.start_at, format: '%Y年%-m月%-d日(%a) %H:%M')
+    | 〜
+  dt 会場
+  dd
+    = link_to @genba.location.name, location_path(@genba.location)
+    =< "(#{@genba.location.address})"
+  dt 出演
+  dd
+    span
+      - @genba.idols.each_with_index do |idol, i|
+        = link_to idol.name, idol_path(idol)
+        - if i < @genba.idols.length - 1
+          | 、
+      - if @genba.more_idols
+        | 、他
+  dt 詳細
+  dd
+    pre = @genba.description
+  dt 参照URL
+  dd
+    ul
+      - @genba.urls.map.each do |url|
+        li = link_to url, url, target: "_blank"
