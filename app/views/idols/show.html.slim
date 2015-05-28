@@ -2,13 +2,13 @@ h3
   = @idol.name
 = @idol.kana
 dl.dl-horizontal
-  - if @idol.url
+  - if @idol.url.present?
     dt 公式サイト
     dd = link_to @idol.url, @idol.url, target: "_blank"
-  - if @idol.blog
+  - if @idol.blog.present?
     dt 公式ブログ
     dd = link_to @idol.blog, @idol.blog, target: "_blank"
-  - if @idol.twitter
+  - if @idol.twitter.present?
     dt Twitter
     dd = link_to "@#{ @idol.twitter }", "https://twitter.com/#{ @idol.twitter }", target: "_blank"
 
