@@ -8,7 +8,7 @@ class Admin::GenbasController < AdminController
     # 指定日付以降のもの(default: today)
     @genbas = Genba.includes(:idols, :location)
       .where("start_at >= ?", p.fetch(:mindate, Date.today.to_s))
-    if p[:location_id]
+    if p[:location_id].present?
       @genbas = @genbas.where("location_id = ?", p[:location_id])
     end
     @genbas = @genbas.order(:start_at)
