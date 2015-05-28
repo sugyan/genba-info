@@ -1,0 +1,4 @@
+h3
+  => @idol.name
+  | 過去の出演
+= react_component "GenbaList", { genbas: @genbas.map{ |genba| genba.attributes_for_list } }, { prerender: true }

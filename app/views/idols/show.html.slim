@@ -1,4 +1,26 @@
 h3
   = @idol.name
 = @idol.kana
-= react_component "IdolDetail", @idol.attributes_for_detail, { prerender: true }
+dl.dl-horizontal
+  - if @idol.url
+    dt 公式サイト
+    dd = link_to @idol.url, @idol.url, target: "_blank"
+  - if @idol.blog
+    dt 公式ブログ
+    dd = link_to @idol.blog, @idol.blog, target: "_blank"
+  - if @idol.twitter
+    dt Twitter
+    dd = link_to "@#{ @idol.twitter }", "https://twitter.com/#{ @idol.twitter }", target: "_blank"
+
+h4
+  | 今後の出演予定
+= react_component "GenbaList", { genbas: @genbas[:schedule].map{ |genba| genba.attributes_for_list } }, { prerender: true }
+- if @genbas[:schedule].next_page
+  div.text-right
+    = link_to "もっと見る", idol_schedule_path(@idol), class: "btn btn-link"
+h4
+  | 過去の出演
+= react_component "GenbaList", { genbas: @genbas[:finished].map{ |genba| genba.attributes_for_list } }, { prerender: true }
+- if @genbas[:finished].next_page
+  div.text-right
+    = link_to "もっと見る", idol_finished_path(@idol), class: "btn btn-link"

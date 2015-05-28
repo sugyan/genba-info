@@ -21,7 +21,7 @@ dl
   dt Twitter
   dd
     - if @idol.twitter?
-      = link_to @idol.twitter, @idol.twitter, target: "_blank"
+      = link_to @idol.twitter, "https://twitter.com/#{ @idol.twitter }", target: "_blank"
     - else
       | なし
   dt Google Calendar

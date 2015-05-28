@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   # Front pages
   get 'detail/:id'   => 'genbas#show', as: :genba
-  resources :idols, only: [:index, :show]
+  resources :idols, only: [:index, :show] do
+    get 'schedule' => 'idols#schedule'
+    get 'finished' => 'idols#finished'
+  end
   resources :locations, only: [:show]
 
   get 'search' => 'search#index'
