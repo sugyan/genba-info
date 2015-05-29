@@ -12,11 +12,14 @@ class Genba < ActiveRecord::Base
   validates :idols, :location, :start_at, presence: true
 
   def attributes_for_list
-    self.serializable_hash(only: [:title, :more_idols]).merge(
+    idols = self.idols.shuffle
+    more = idols.length > 10 || self.more_idols
+    self.serializable_hash(only: [:title]).merge(
       id: self.to_param,
       start_at: I18n.l(self.start_at, format: '%-m月%-d日(%a) %H:%M'),
       location: self.location.name,
-      idols: self.idols.map{ |idol| idol.serializable_hash(only: [:name, :kana]) },
+      idols: idols[0..9].map{ |idol| idol.serializable_hash(only: [:name]) },
+      more_idols: more,
       link:  Rails.application.routes.url_helpers.genba_path(self),
       epoch: self.start_at.to_i,
     )
