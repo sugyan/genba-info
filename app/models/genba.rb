@@ -18,6 +18,7 @@ class Genba < ActiveRecord::Base
       location: self.location.name,
       idols: self.idols.map{ |idol| idol.serializable_hash(only: [:name, :kana]) },
       link:  Rails.application.routes.url_helpers.genba_path(self),
+      epoch: self.start_at.to_i,
     )
   end
 
