@@ -1,0 +1,8 @@
+h3
+  | 現場情報提供
+- if user_signed_in?
+  = link_to "新規投稿", new_post_path, class: "btn btn-primary"
+- else
+  button.btn.btn-muted disabled=true 新規投稿
+  =< link_to "Twitterログイン", user_omniauth_authorize_path(provider: :twitter)
+  | が必須です。

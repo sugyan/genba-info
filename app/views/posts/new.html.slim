@@ -1,0 +1,39 @@
+h3
+  | 現場情報 新規投稿
+= form_for :post do |form|
+  .form-group
+    = form.label "日時"
+    .form-inline
+      => form.select :date, options_for_select((0..100).map{|n| d = Date.today + n; [l(d, format: "%Y年%-m月%-d日(%a)"), d] }), {}, class: "form-control"
+      = form.select :hh, options_for_select((0..23).map{|h| "%02d" % [h] }), {}, class: "form-control"
+      | :
+      => form.select :mm, options_for_select((0..11).map{|m| "%02d" % [m * 5] }), {}, class: "form-control"
+      | 〜
+  .form-group
+    = form.label "タイトル"
+    = form.text_field :title, class: "form-control"
+    span.help-block
+      | 2部制など分かれている場合は末尾に&quot; (1部)&quot;など付け加えてください。
+  .form-group
+    = form.label "会場"
+    = react_component "InputLocation", name: :location
+    span.help-block
+      | 補完で出てこない場所は住所まで記入していただけると助かります。
+  .form-group
+    = form.label "出演者"
+    = react_component "InputIdols", name: :idols
+    span.help-block
+      | 複数入力可。
+  .form-group
+    = form.label "参照URL"
+    = form.url_field :urls, class: "form-control"
+    span.help-block
+      | 情報ソースとなるURLを
+      strong 必ず
+      | 入力してください。(各イベントの詳細ページ、運営の告知ブログ記事など)
+  .form-group
+    = form.label "詳細"
+    = form.text_area :description, rows: 7, class: "form-control"
+    span.help-block
+      | 上記情報ソースURLから、コピー&ペーストでイベント詳細情報を貼り付けてください。
+  = form.submit "確認", class: "btn btn-primary"

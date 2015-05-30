@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     get 'schedule' => 'idols#schedule'
     get 'finished' => 'idols#finished'
   end
-  resources :locations, only: [:show]
+  resources :locations, only: [:index, :show]
+
+  resources :posts, only: [:index, :new]
 
   get 'search' => 'search#index'
   get 'about'  => 'root#about'
