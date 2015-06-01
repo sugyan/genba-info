@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   end
   resources :locations, only: [:index, :show]
 
-  resources :posts, only: [:index, :new]
+  resources :posts, only: [:index, :new] do
+    post 'confirm', on: :collection
+  end
 
   get 'search' => 'search#index'
   get 'about'  => 'root#about'

@@ -1,7 +1,8 @@
 class InputLocation extends React.Component {
     static get propTypes() {
         return {
-            name: React.PropTypes.string.isRequired
+            name: React.PropTypes.string.isRequired,
+            value: React.PropTypes.string.isRequired
         };
     }
     componentDidMount() {
@@ -34,6 +35,7 @@ class InputLocation extends React.Component {
                 ref="input"
                 type="text"
                 name={this.props.name}
+                defaultValue={this.props.value}
                 className="form-control"
               />
             </div>
