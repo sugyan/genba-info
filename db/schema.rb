@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526141636) do
+ActiveRecord::Schema.define(version: 20150601161457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,21 @@ ActiveRecord::Schema.define(version: 20150526141636) do
   add_index "locations", ["geohash"], name: "index_locations_on_geohash", using: :btree
   add_index "locations", ["name"], name: "index_locations_on_name", unique: true, using: :btree
 
+  create_table "posts", force: :cascade do |t|
+    t.string   "poster",      null: false
+    t.integer  "user_id"
+    t.datetime "start_at",    null: false
+    t.string   "title",       null: false
+    t.string   "location",    null: false
+    t.text     "idols",       null: false
+    t.text     "url",         null: false
+    t.text     "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
   create_table "sources", force: :cascade do |t|
     t.string   "provider",                    null: false
     t.string   "keystr",                      null: false
@@ -121,4 +136,5 @@ ActiveRecord::Schema.define(version: 20150526141636) do
   add_index "users", ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true, using: :btree
 
   add_foreign_key "genbas", "locations"
+  add_foreign_key "posts", "users"
 end

@@ -18,10 +18,10 @@ h3
   .form-group
     = form.label "日時"
     .form-inline
-      => select_tag :date, options_for_select((0..100).map{|n| d = Date.today + n; [l(d, format: "%Y年%-m月%-d日(%a)"), d] }), class: "form-control"
-      = select_tag :hh, options_for_select((0..23).map{|h| "%02d" % [h] }), class: "form-control"
+      => select_tag :date, options_for_select((0..100).map{|n| d = Date.today + n; [l(d, format: "%Y年%-m月%-d日(%a)"), d] }, @post.start_at.to_date), class: "form-control"
+      = select_tag :hh, options_for_select((0..23).map{|h| "%02d" % [h] }, @post.start_at.strftime("%H")), class: "form-control"
       | :
-      => select_tag :mm, options_for_select((0..11).map{|m| "%02d" % [m * 5] }), class: "form-control"
+      => select_tag :mm, options_for_select((0..11).map{|m| "%02d" % [m * 5] }, @post.start_at.strftime("%M")), class: "form-control"
       | 〜
   .form-group
     = form.label :title
@@ -36,7 +36,8 @@ h3
       | 補完で出てこない場所は住所まで記入していただけると助かります。
   .form-group
     = form.label :idols
-    = react_component "InputIdols", name: :idols
+    = form.fields_for :idols do |field|
+      = react_component "InputIdols", name: field.object_name, values: @post.idols
     span.help-block
       | 複数入力可。
   .form-group

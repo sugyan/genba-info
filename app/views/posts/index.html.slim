@@ -1,8 +1,34 @@
 h3
   | 現場情報提供
+p
+  | 現場情報を集めています。
+  | 未掲載の現場情報をお持ちでしたらこちらから投稿して教えてください。
 - if user_signed_in?
   = link_to "新規投稿", new_post_path, class: "btn btn-primary"
 - else
   button.btn.btn-muted disabled=true 新規投稿
-  =< link_to "Twitterログイン", user_omniauth_authorize_path(provider: :twitter)
+  |  ※
+  = link_to "Twitterログイン", user_omniauth_authorize_path(provider: :twitter)
   | が必須です。
+hr
+- @posts.each do |post|
+  .panel.panel-default
+    .panel-heading
+      | 投稿日時:
+      =< post.created_at.strftime("%Y-%m-%d %H:%M:%S")
+      =<> "/"
+      | 投稿者:
+      =< post.poster.presence || "匿名"
+    .panel-body
+      ul.list-unstyled
+        li
+          strong
+            = l(post.start_at, format: "%-m月%-d日(%a) %H:%M")
+            | 〜
+            =< post.title
+        li
+          | 会場:
+          = post.location
+        li
+          | 出演者:
+          = post.idols.join("、")

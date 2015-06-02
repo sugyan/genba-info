@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :locations, only: [:index, :show]
 
-  resources :posts, only: [:index, :new] do
+  resources :posts, only: [:index, :new, :create] do
     post 'confirm', on: :collection
   end
 

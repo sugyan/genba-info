@@ -1,7 +1,13 @@
 class InputIdols extends React.Component {
+    constructor(props) {
+        this.state = {
+            values: props.values
+        };
+    }
     static get propTypes() {
         return {
-            name: React.PropTypes.string.isRequired
+            name: React.PropTypes.string.isRequired,
+            values: React.PropTypes.array.isRequired
         };
     }
     componentDidMount() {
@@ -20,15 +26,30 @@ class InputIdols extends React.Component {
                 })
             }
         });
+        input.on('itemAdded itemRemoved', (e) => {
+            this.setState({ values: input.tagsinput("items") });
+        });
     }
     render() {
+        var values = this.state.values.map((e, i) => {
+            return (
+                <input
+                  key={i}
+                  type="hidden"
+                  name={this.props.name + "[]"}
+                  value={e}
+                />
+            )
+        })
         return (
-            <input
-              ref="input"
-              type="text"
-              name={this.props.name}
-              className="form-control"
-            />
+            <div>
+              {values}
+              <input
+                ref="input"
+                className="form-control"
+                defaultValue={this.props.values.join(",")}
+              />
+            </div>
         );
     }
 }
