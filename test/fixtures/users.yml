@@ -5,5 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
+  name: 名前
+  nickname: sugyan
   provider: twitter
   uid: 15873
