@@ -21,6 +21,13 @@ ja:
         location: 会場
         description: 詳細
         status: 公開ステータス
+      post:
+        poster: 投稿者名
+        title: タイトル
+        location: 会場
+        idols: 出演者
+        url: 参照URL
+        description: 詳細
   views:
     pagination:
       first: 最初

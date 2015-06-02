@@ -6,7 +6,7 @@ class Admin::IdolsController < AdminController
   def index
     respond_to do |format|
       format.html { @idols = Idol.order(:kana).page(params[:page]).per(25) }
-      format.json { @idols = Idol.order(id: :desc) }
+      format.json { @idols = Idol.order(:id => :desc) }
     end
   end
 

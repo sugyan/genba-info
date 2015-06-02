@@ -16,7 +16,7 @@ class Genba < ActiveRecord::Base
     more = idols.length > 10 || self.more_idols
     self.serializable_hash(only: [:title]).merge(
       id: self.to_param,
-      start_at: I18n.l(self.start_at, format: '%-m月%-d日(%a) %H:%M'),
+      start_at: I18n.l(self.start_at, format: "%-m月%-d日(%a) %H:%M"),
       location: self.location.name,
       idols: idols[0..9].map{ |idol| idol.serializable_hash(only: [:name]) },
       more_idols: more,
