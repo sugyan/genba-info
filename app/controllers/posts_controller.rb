@@ -1,16 +1,24 @@
 # coding: utf-8
 class PostsController < ApplicationController
   # devise_group :user, contains: [:user]
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :confirm, :create]
 
+  # GET /posts
   def index
     @posts = Post.order(:created_at => :desc)
   end
 
+  # GET /posts/1
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  # GET /posts/new
   def new
     @post = Post.new(poster: current_user.name, start_at: Date.today)
   end
 
+  # POST /posts/confirm
   def confirm
     @post = Post.new(post_params)
     if @post.invalid?
@@ -18,6 +26,7 @@ class PostsController < ApplicationController
     end
   end
 
+  # POST /posts
   def create
     @post = Post.new(post_params.merge(user: current_user))
     @post.save!

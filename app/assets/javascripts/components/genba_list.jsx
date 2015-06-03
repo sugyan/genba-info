@@ -79,21 +79,17 @@ class GenbaListRow extends React.Component {
         return (
             <tr>
               <td>
-                <ul className="list-unstyled">
-                  <li>
-                    <strong>
-                      {this.props.start_at}〜
-                      &nbsp;
-                      <a href={this.props.link}>{this.props.title}</a>
-                    </strong>
-                  </li>
-                  <li>
-                    会場: {this.props.location}
-                  </li>
-                  <li>
-                    出演: {idols.join("、")}
-                  </li>
-                </ul>
+                <span>
+                  <strong>
+                    {this.props.start_at}〜
+                    &nbsp;
+                    <a href={this.props.link}>{this.props.title}</a>
+                  </strong>
+                  <br/>
+                  会場: {this.props.location}
+                  <br/>
+                  出演: {idols.join("、")}
+                </span>
               </td>
             </tr>
         );

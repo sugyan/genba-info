@@ -15,19 +15,18 @@ hr
     .panel-heading
       | 投稿日時:
       =< post.created_at.strftime("%Y-%m-%d %H:%M:%S")
-      =<> "/"
+      br
       | 投稿者:
       =< post.poster.presence || "匿名"
     .panel-body
-      ul.list-unstyled
-        li
-          strong
-            = l(post.start_at, format: "%-m月%-d日(%a) %H:%M")
-            | 〜
-            =< post.title
-        li
-          | 会場:
-          = post.location
-        li
-          | 出演者:
-          = post.idols.join("、")
+      span
+        strong
+          = l(post.start_at, format: "%-m月%-d日(%a) %H:%M")
+          | 〜
+          =< link_to post.title, post_path(post)
+        br
+        | 会場:
+        =< post.location
+        br
+        | 出演者:
+        =< post.idols.join("、")
