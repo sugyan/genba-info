@@ -23,8 +23,8 @@ ja:
         status: 公開ステータス
       post:
         poster: 投稿者名
-        title: タイトル
-        location: 会場
+        title: イベント・ライブ名
+        location: 会場名
         idols: 出演者
         url: 参照URL
         description: 詳細

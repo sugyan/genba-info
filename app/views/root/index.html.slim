@@ -1,3 +1,7 @@
 h3
   | 直近の現場
+p
+  | ※未掲載の現場情報は
+  = link_to "こちら", posts_path
+  | から投稿して教えていただけると助かります。
 = react_component "GenbaList", { genbas: @genbas.map{ |genba| genba.attributes_for_list }, autopager: true }, { prerender: true }

@@ -1,8 +1,7 @@
 h3
   | 現場情報提供
 p
-  | 現場情報を集めています。
-  | 未掲載の現場情報をお持ちでしたらこちらから投稿して教えてください。
+  | 未掲載の現場情報がありましたら、ここで投稿して教えてください。
 - if user_signed_in?
   = link_to "新規投稿", new_post_path, class: "btn btn-primary"
 - else

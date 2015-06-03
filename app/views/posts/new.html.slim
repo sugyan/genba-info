@@ -15,6 +15,8 @@ h3
   .form-group
     = form.label :poster
     = form.text_field :poster, class: "form-control"
+    span.help-block
+      | 匿名でもOKです
   .form-group
     = form.label "日時"
     .form-inline
@@ -27,29 +29,28 @@ h3
     = form.label :title
     = form.text_field :title, class: "form-control"
     span.help-block
-      | 2部制など分かれている場合は末尾に&quot; (1部)&quot;など付け加えてください。
   .form-group
     = form.label :location
     = form.fields_for :location do |field|
       = react_component "InputLocation", name: field.object_name, value: @post.location.to_s
     span.help-block
-      | 補完で出てこない場所は住所まで記入していただけると助かります。
+      | 可能であれば住所まで記入していただけると助かります
   .form-group
     = form.label :idols
     = form.fields_for :idols do |field|
       = react_component "InputIdols", name: field.object_name, values: @post.idols
     span.help-block
-      | 複数入力可。
+      | 複数入力可
   .form-group
     = form.label :url
     = form.url_field :url, class: "form-control"
     span.help-block
-      | 情報ソースとなるURLを
+      | 情報ソース(各イベントの詳細ページ、運営の告知ブログ記事など)のURLを
       strong 必ず
-      | 入力してください。(各イベントの詳細ページ、運営の告知ブログ記事など)
+      | 入力してください
   .form-group
     = form.label :description
     = form.text_area :description, rows: 7, class: "form-control"
     span.help-block
-      | 上記情報ソースURLから、コピー&ペーストでイベント詳細情報を貼り付けてください。
+      | 上記情報ソースURLから、コピー&ペーストでイベント詳細情報を貼り付けてください
   = form.submit "確認", class: "btn btn-primary"
