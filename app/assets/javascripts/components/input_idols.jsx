@@ -26,7 +26,7 @@ class InputIdols extends React.Component {
                 })
             }
         });
-        input.on('itemAdded itemRemoved', (e) => {
+        input.on("itemAdded itemRemoved", (e) => {
             this.setState({ values: input.tagsinput("items") });
         });
     }

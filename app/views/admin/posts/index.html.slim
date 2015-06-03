@@ -1,0 +1,24 @@
+h3
+  | 情報提供
+= page_entries_info @posts
+table.table.table-hover
+  thead
+    th 日時
+    th タイトル
+    th 会場
+    th 投稿者
+    th 投稿日時
+  - @posts.each do |post|
+    tr
+      td.text-nowrap
+        = post.start_at.strftime('%Y-%m-%d %H:%M')
+      td
+        = link_to post.title, editor_post_path(post)
+      td
+        = post.location
+      td
+        = post.poster.presence || "匿名"
+      td
+        = post.created_at.strftime('%Y-%m-%d %H:%M:%S')
+nav.text-center
+  = paginate @posts

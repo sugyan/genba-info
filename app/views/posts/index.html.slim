@@ -11,7 +11,7 @@ p
   | が必須です。
 hr
 - @posts.each do |post|
-  .panel.panel-default
+  div.panel class="#{ post.genba ? 'panel-success' : 'panel-default' }"
     .panel-heading
       | 投稿日時:
       =< post.created_at.strftime("%Y-%m-%d %H:%M:%S")
@@ -30,3 +30,6 @@ hr
         br
         | 出演者:
         =< post.idols.join("、")
+    - if post.genba
+      .panel-footer
+        = link_to "掲載済み", genba_path(post.genba)

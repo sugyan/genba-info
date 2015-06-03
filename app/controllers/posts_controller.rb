@@ -5,7 +5,9 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.order(:created_at => :desc)
+    @posts = Post
+      .includes(:user, :genba)
+      .order(:created_at => :desc)
   end
 
   # GET /posts/1

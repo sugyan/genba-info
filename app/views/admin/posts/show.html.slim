@@ -1,0 +1,38 @@
+h3
+  | 情報提供 詳細
+dl
+  dt ID
+  dd
+    = @post.id
+  dt タイトル
+  dd
+    = @post.title
+  dt 日時
+  dd
+    => l(@post.start_at, format: '%Y年%-m月%-d日(%a) %H:%M')
+    | 〜
+  dt 会場
+  dd
+    = @post.location
+  dt 詳細
+  dd
+    pre
+      = @post.description
+  dt 参照URL
+  dd
+    = @post.url
+  br
+  dt 投稿者
+  dd
+    => @post.poster.presence || "匿名"
+    = "(user #{@post.user.id}: @#{@post.user.nickname})"
+  dt 投稿日時
+  dd
+    = @post.created_at.strftime("%Y-%m-%d %H:%M:%S")
+= form_for @post, url: editor_post_path(@post), html: { class: "well" } do |form|
+  .form-group
+    = form.label :genba_id
+    = form.text_field :genba_id, class: "form-control"
+  = form.submit nil, class: "btn btn-primary"
+hr
+= link_to "一覧へ戻る", editor_posts_path, class: "btn btn-link"
