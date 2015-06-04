@@ -1,4 +1,7 @@
 ja:
+  time:
+    formats:
+      genba: "%-m月%-d日(%a) %H:%M"
   activerecord:
     attributes:
       editor:
