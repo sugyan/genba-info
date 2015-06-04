@@ -31,11 +31,11 @@ namespace :twitter_bot do
     ]
     idols = genba.idols.shuffle
     text += idols.shift.name
-    while idols.present? && text.length + idols[0].name.length + url_length + 3 < 140
-      text += "," + idols.shift.name
+    while idols.present? && text.length + idols[0].name.length + url_length + 5 < 140
+      text += ", " + idols.shift.name
     end
     if idols.present? or genba.more_idols
-      text += ",他"
+      text += ", 他"
     end
     logger.info("%s (%d)" % [text, text.length + 1 + url_length])
     # Tweet
