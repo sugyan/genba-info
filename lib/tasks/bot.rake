@@ -8,7 +8,7 @@ namespace :twitter_bot do
     ActiveRecord::Base.logger = logger
     now = DateTime.now
     logger.info("now: #{ now }")
-    next unless now.hour % 6 == 5 # (hourly task 前提)
+    next unless now.hour % 8 == 7 # (hourly task 前提)
 
     # 公開中の3時間後〜3日後の範囲内で適当に選択
     genba = Genba
