@@ -1,5 +1,5 @@
 h3 現場新規登録
-= render partial: "form", locals: { genba: @genba, url: editor_genbas_path }
+= render partial: "admin/genbas/form", locals: { genba: @genba, url: editor_genbas_path }
 hr
 .links
   = link_to "一覧へ戻る", editor_genbas_path, class: "btn btn-link"
