@@ -5,6 +5,8 @@ class Idol < ActiveRecord::Base
 
   has_and_belongs_to_many :genbas
 
+  serialize :nicknames, Array
+
   validates :name, :kana, presence: true
   validates :name, uniqueness: true
   validates :kana, format: { with: /\A(?:\p{Hiragana}|ー)+\z/, message: 'はひらがなで入力してください。' }

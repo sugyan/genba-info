@@ -6,6 +6,12 @@ dl
   dd = @idol.name
   dt ふりがな
   dd = @idol.kana
+  dt 愛称・略称
+  dd
+    - if @idol.nicknames?
+      = @idol.nicknames.join(", ")
+    - else
+      | なし
   dt URL
   dd
     - if @idol.url?

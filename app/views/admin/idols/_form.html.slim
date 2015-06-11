@@ -17,6 +17,10 @@
     = form.label :kana
     = form.text_field :kana, class: "form-control"
   .form-group
+    = form.label :nicknames
+    = form.fields_for(:nicknames) do |field|
+      = react_component "InputTags", name: field.object_name, values: @idol.nicknames
+  .form-group
     = form.label :url
     = form.text_field :url, class: "form-control"
   .form-group

@@ -10,6 +10,7 @@ ja:
       idol:
         name: 名前
         kana: ふりがな
+        nicknames: 愛称・略称
         url: 公式URL
         cid: Google Calendar ID
       location:

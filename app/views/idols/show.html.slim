@@ -1,6 +1,11 @@
 h3
   = @idol.name
-= @idol.kana
+div
+  => @idol.kana
+  span.text-muted
+    | (
+    = @idol.nicknames.join(", ")
+    | )
 dl.dl-horizontal
   - if @idol.url.present?
     dt 公式サイト
