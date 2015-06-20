@@ -55,6 +55,8 @@ gem 'kaminari', '~> 0.16'
 gem 'pr_geohash', '~> 1.0'
 # Twitter
 gem 'twitter', '~> 5.14'
+# Google
+gem 'google-api-client', '~> 0.8'
 # I18n
 gem 'rails-i18n', '~> 4.0'
 gem 'devise-i18n', '~> 0.12'
