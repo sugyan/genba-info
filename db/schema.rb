@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603171114) do
+ActiveRecord::Schema.define(version: 20150620164717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,8 +116,10 @@ ActiveRecord::Schema.define(version: 20150603171114) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "status",      default: false, null: false
+    t.integer  "idol_id"
   end
 
+  add_index "sources", ["idol_id"], name: "index_sources_on_idol_id", using: :btree
   add_index "sources", ["provider", "keystr"], name: "index_sources_on_provider_and_keystr", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -140,4 +142,5 @@ ActiveRecord::Schema.define(version: 20150603171114) do
   add_foreign_key "genbas", "locations"
   add_foreign_key "posts", "genbas"
   add_foreign_key "posts", "users"
+  add_foreign_key "sources", "idols"
 end

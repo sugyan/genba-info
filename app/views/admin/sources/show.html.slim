@@ -1,16 +1,40 @@
 h3 情報詳細
-= react_component "SourceDescription", @source.attributes.merge( \
-    created_at: @source.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-    updated_at: @source.updated_at.strftime('%Y-%m-%d %H:%M:%S'),
-    start_at: @source.start_at.strftime('%Y-%m-%d %H:%M'),
-  )
-
+dl
+  dt ID
+  dd
+    = "#{@source.id} (#{[@source.provider, @source.keystr].join(':')})"
+  dt タイトル
+  dd
+    = @source.title
+  dt 日時
+  dd
+    => @source.start_at.strftime('%Y-%m-%d %H:%M:%S')
+    | 〜
+  dt 会場
+  dd
+    = @source.location || "不明"
+  dt 出演
+  dd
+    = @source.idol.name
+  dt 詳細
+  dd
+    pre
+      = @source.description
+  dt 参照URL
+  dd
+    = link_to @source.url, @source.url, target: "_blank"
+  dt 状態
+  dd
+    = @source.status ? "処理済" : "未処理"
+  dt 作成日時
+  dd
+    = @source.created_at.strftime('%Y-%m-%d %H:%M:%S')
+  dt 更新日時
+  dd
+    = @source.updated_at.strftime('%Y-%m-%d %H:%M:%S')
 .links
-  a.btn.btn-primary href=editor_new_genba_path(@source)
-    | この情報を元に現場を登録する
-  a.btn.btn-danger href=editor_source_path(@source) data-method=:patch
-    | 処理済みにする
+  = link_to "この情報を元に現場を登録する", editor_new_genba_path(@source), class: "btn btn-primary"
+  = link_to "処理済みにする", editor_source_path(@source), class: "btn btn-danger", "data-method": :patch
 hr
-
-a.btn.btn-link href=editor_sources_path
-  | 一覧へ戻る
+.links
+  = link_to "一覧へ戻る", editor_sources_path, class: "btn btn-link"
