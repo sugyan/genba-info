@@ -9,7 +9,7 @@ class Admin::SourcesController < AdminController
     @sources = Source
       .where("start_at >= ?", p.fetch(:mindate, Date.today))
       .where(status: p.fetch(:status, "0").to_i) # status指定可(default: 0)
-      .order(:start_at)
+      .order(:start_at, :id)
       .page(params[:page]).per(25)
   end
 
