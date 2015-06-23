@@ -1,10 +1,6 @@
 class IdolsController < ApplicationController
   def index
-    respond_to do |format|
-      format.json do
-        @idols = Idol.order(:kana)
-      end
-    end
+    @idols = Idol.order(:kana)
   end
 
   def show

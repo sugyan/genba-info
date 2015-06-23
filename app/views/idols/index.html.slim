@@ -1,0 +1,5 @@
+h3 アイドル一覧
+ul
+- @idols.each do |idol|
+  li
+    = link_to idol.name, idol_path(idol)

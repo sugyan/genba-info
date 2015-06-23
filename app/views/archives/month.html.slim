@@ -1,0 +1,12 @@
+h3
+  = "#{@target.year}年#{@target.month}月"
+.row
+  .pull-left
+    = link_to "←" + @prev.strftime("%Y年%-m月"), controller: "archives", action: "month", year: "%02d" % @prev.year, month: "%02d" % @prev.month
+  .pull-right
+    = link_to @next.strftime("%Y年%-m月") + "→", controller: "archives", action: "month", year: "%02d" % @next.year, month: "%02d" % @next.month
+hr
+ul
+  - @days.each do |day|
+    li
+      = link_to l(day.day, format: "%-m月%-d日") + " (%d)" % [day.count], controller: "archives", action: "day", day: "%02d" % day.day.day

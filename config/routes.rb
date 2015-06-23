@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     post 'confirm', on: :collection
   end
 
+  get 'archives' => 'archives#index'
+  get 'archives/:year/:month'      => 'archives#month'
+  get 'archives/:year/:month/:day' => 'archives#day'
   get 'search' => 'search#index'
   get 'about'  => 'root#about'
 

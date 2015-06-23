@@ -1,0 +1,9 @@
+h3
+  = "#{@target.year}年#{@target.month}月#{@target.day}日"
+.row
+  .pull-left
+    = link_to "←" + @prev.strftime("%-m月%-d日"), controller: "archives", action: "day", year: "%02d" % @prev.year, month: "%02d" % @prev.month, day: "%02d" % @prev.day
+  .pull-right
+    = link_to @next.strftime("%-m月%-d日") + "→", controller: "archives", action: "day", year: "%02d" % @next.year, month: "%02d" % @next.month, day: "%02d" % @next.day
+br
+= react_component "GenbaList", { genbas: @genbas.map{ |genba| genba.attributes_for_list } }, { prerender: true }
