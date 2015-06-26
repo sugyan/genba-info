@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'root#index'
   get  'index' => 'root#index'
+  get  'google443a1ff427ff286e.html' => 'root#google_verification'
 
   # Front pages
   get 'detail/:id'   => 'genbas#show', as: :genba

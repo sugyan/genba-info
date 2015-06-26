@@ -14,4 +14,8 @@ class RootController < ApplicationController
 
   def about
   end
+
+  def google_verification
+    render text: "google-site-verification: google443a1ff427ff286e.html"
+  end
 end
