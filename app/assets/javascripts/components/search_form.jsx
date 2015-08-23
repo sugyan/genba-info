@@ -19,6 +19,7 @@ class SearchForm extends React.Component {
 
 class SearchMainForm extends React.Component {
     constructor(props) {
+        super(props);
         this.state = {
             mindate: props.mindate
         };
@@ -64,6 +65,7 @@ class SearchMainForm extends React.Component {
 
 class IdolTagsInput extends React.Component {
     constructor(props) {
+        super(props);
         this.state = {
             idols: props.idols
         };
